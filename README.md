@@ -6,4 +6,31 @@ We're using the [OpenWeather API](https://openweathermap.org/current) to get wea
 
 You'll need to get your own API Key from their website (for free) and add it as an environment variable in a `.env` file. We have a template available as `example.env`.
 
-You'll be using React initially to build this. If you're new to React, check out the [website](https://reactjs.org) for some information on getting started! 
+You'll be using React initially to build this. If you're new to React, check out the [website](https://reactjs.org) for some information on getting started!
+
+
+----
+## Installation & Development
+
+### 1- Prerequisites
+To run a react project, you need to have the following prerequisite:
+- [Node.js & NPM (Node Package Manager)](https://nodejs.org/en/download/).
+
+> To test if node is installed, run `node -v` in your terminal.
+
+> To test if npm is installed, run `npm -v` in your terminal.
+### 2- Install
+
+First you'll need to install the dependencies of the project.
+- Run `npm install` in your terminal in the root of the project.
+
+### 3- Development
+
+Then you'll need to start the development server. This will open a new tab in your browser and reload when you make a change.
+- Run `npm start` in your terminal in the root of the project.
+
+### 4- Deployment
+
+To build the project for production, run `npm run build`.
+
+More documentation on the scripts can be found [here](https://create-react-app.dev/docs/available-scripts).
