@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import '../App.css';
 import logo from '../mlh-prep.png'
-import ErrorComponent from "./Error Component";
-import ResultsComponent from "./Results Component";
-import SearchComponent from "./Search Component";
+import ErrorComponent from "./ErrorComponent";
+import ResultsComponent from "./ResultsComponent";
+import SearchComponent from "./SearchComponent";
 
 function App() {
   const [error, setError] = useState(null);
