@@ -77,6 +77,7 @@ export default function App() {
   } else {
     return <>
       <div>
+      <img className="logo" src={logo} alt="MLH Prep Logo"></img>
         <h2>Enter a city below 👇</h2>
         <SearchComponent city={city} changeCity={changeCity} />
         <ResultsComponent isLoaded={isLoaded} results={results}/>
