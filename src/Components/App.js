@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import '../App.css';
-import logo from '../mlh-prep.png'
-import ErrorComponent from "./Error Component";
-import ResultsComponent from "./Results Component";
-import SearchComponent from "./Search Component";
-import Map from "./Map"
+import logo from '../mlh-prep.png';
+import ErrorComponent from "./ErrorComponent";
+import ResultsComponent from "./ResultsComponent";
+import SearchComponent from "./SearchComponent";
+import Map from "./Map";
 
 export default function App() {
   const [error, setError] = useState(null);
