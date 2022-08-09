@@ -4,54 +4,13 @@ import logo from '../mlh-prep.png'
 import ErrorComponent from "./Error Component";
 import ResultsComponent from "./Results Component";
 import SearchComponent from "./Search Component";
-import mapboxgl from 'mapbox-gl';
-
-mapboxgl.accessToken = 'pk.eyJ1Ijoicm95Z2JldiIsImEiOiJjbDFjYzF2ajUwMHgzM2NwcXBzdWVxM3ZvIn0.2k8N-UN2Y7ZdT5vwml9QAw';
+import Map from "./Map"
 
 export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
   const [results, setResults] = useState(null);
-
-  const changeCity = (city) => setCity(city);
-
-  const mapContainer = useRef(null);
-  const map = useRef(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(9);
-
-  useEffect(() => { // mapbox
-    if (map.current) return; // initialize map only once
-
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [lng, lat],
-      zoom: zoom
-    });
-
-    map.current.on('click', (e) => {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          if (result['cod'] !== 200) {
-            setIsLoaded(false)
-          } else {
-            setIsLoaded(true);
-            setResults(result);
-          }
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-    });
-  }
-  );
 
   useEffect(() => { // weather
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
@@ -75,16 +34,16 @@ export default function App() {
   if (error) {
     return <ErrorComponent error={error} />;
   } else {
-    return <>
-      <div>
-      <img className="logo" src={logo} alt="MLH Prep Logo"></img>
-        <h2>Enter a city below 👇</h2>
-        <SearchComponent city={city} changeCity={changeCity} />
-        <ResultsComponent isLoaded={isLoaded} results={results}/>
+    return (
+      <>
         <div>
-          <div ref={mapContainer} className="map-container" />
-          </div>
-      </div>
-    </>
+          <img className="logo" src={logo} alt="MLH Prep Logo"></img>
+          <h2>Enter a city below 👇</h2>
+          <SearchComponent city={city} changeCity={setCity} />
+          <ResultsComponent isLoaded={isLoaded} results={results}/>
+          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
+        </div>
+      </>
+    )
   }
 }
