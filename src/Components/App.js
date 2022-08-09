@@ -22,18 +22,39 @@ export default function App() {
   const [lat, setLat] = useState(42.35);
   const [zoom, setZoom] = useState(9);
 
-  useEffect(() => {
+  useEffect(() => { // mapbox
     if (map.current) return; // initialize map only once
+
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
       zoom: zoom
     });
-  });
 
-  useEffect(() => {
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric" + "&appid=" + process.env.REACT_APP_APIKEY)
+    map.current.on('click', (e) => {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          if (result['cod'] !== 200) {
+            setIsLoaded(false)
+          } else {
+            setIsLoaded(true);
+            setResults(result);
+          }
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+    });
+  }
+  );
+
+  useEffect(() => { // weather
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -55,7 +76,6 @@ export default function App() {
     return <ErrorComponent error={error} />;
   } else {
     return <>
-      <img className="logo" src={logo} alt="MLH Prep Logo"></img>
       <div>
         <h2>Enter a city below 👇</h2>
         <SearchComponent city={city} changeCity={changeCity} />
@@ -67,7 +87,3 @@ export default function App() {
     </>
   }
 }
-
-// export default function App(){
-
-// };
