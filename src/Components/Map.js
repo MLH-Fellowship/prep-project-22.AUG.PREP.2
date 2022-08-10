@@ -9,6 +9,7 @@ export default function Map({ setIsLoaded, setResults, setError }) {
     const [lng, setLng] = useState(-70.9);
     const [lat, setLat] = useState(42.35);
     const [zoom, setZoom] = useState(9);
+    const [markers, setMarkers] = useState([]);
 
     useEffect(() => { // mapbox
     if (map.current) return; // initialize map only once
@@ -28,6 +29,11 @@ export default function Map({ setIsLoaded, setResults, setError }) {
             if (result['cod'] !== 200) {
             setIsLoaded(false)
             } else {
+            setMarkers(markers => [...markers, 
+                new mapboxgl.Marker()
+                .setLngLat([e.lngLat.lng, e.lngLat.lat])
+                .addTo(map.current)]);
+
             setIsLoaded(true);
             setResults(result);
             }
@@ -39,6 +45,13 @@ export default function Map({ setIsLoaded, setResults, setError }) {
         )
     });
     }, []);
+
+    useEffect(() => {
+        console.log(markers);
+        if (markers.length > 1) { // if marker already created
+            markers[markers.length - 2].remove(); // remove second to last marker
+        }
+    }, [markers])
 
     return (
         <>
