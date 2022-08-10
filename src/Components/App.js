@@ -1,9 +1,10 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import '../App.css';
 import logo from '../mlh-prep.png';
 import ErrorComponent from "./ErrorComponent";
 import ResultsComponent from "./ResultsComponent";
 import SearchComponent from "./SearchComponent";
+import RequiredItems from "./RequiredItems";
 import Map from "./Map";
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
           <h2>Enter a city below 👇</h2>
           <SearchComponent city={city} changeCity={setCity} />
           <ResultsComponent isLoaded={isLoaded} results={results}/>
+          {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
         </div>
       </>
