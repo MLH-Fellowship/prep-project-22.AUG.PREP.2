@@ -30,7 +30,7 @@ export default function Map({ setIsLoaded, setResults, setError }) {
                     setIsLoaded(false)
                     } else {
                         setMarker(marker => {
-                            if (marker) markers.remove()
+                            if (marker) marker.remove()
                             return new mapboxgl.Marker()
                                     .setLngLat([e.lngLat.lng, e.lngLat.lat])
                                     .addTo(map.current)
