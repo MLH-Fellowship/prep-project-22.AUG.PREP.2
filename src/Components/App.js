@@ -38,24 +38,30 @@ export default function App() {
 
   // Fetch data based on user input
   useEffect(() => { // weather
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          if (result['cod'] !== 200) {
-            setIsLoaded(false)
-          } else {
-            setCoords({lat: result.coord.lat, lon: result.coord.lon})
+    console.log(city);
+    const fetchData = setTimeout(() => { // fetch data after user stops typing 
+      console.log("fetch")
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if (result['cod'] !== 200) {
+              setIsLoaded(false)
+            } else {
+              setCoords({lat: result.coord.lat, lon: result.coord.lon})
+              setIsLoaded(true);
+              setResults(result);
+              setBackground(result.weather[0].main)
+            }
+          },
+          (error) => {
             setIsLoaded(true);
-            setResults(result);
-            setBackground(result.weather[0].main)
+            setError(error);
           }
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
+        )
+    }, 1000) // 1 second therhold 
+
+      return () => clearTimeout(fetchData)
   }, [city])
 
   if (error) {
