@@ -2,7 +2,6 @@
   "name": "prep-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://deadreyo.github.io/prep-project-22.AUG.PREP.2-proj2-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
