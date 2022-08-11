@@ -1,7 +1,7 @@
 body {
-    background-color: #133667;
-    color: white;
-    text-align: center;
+  background-color: #133667;
+  color: white;
+  text-align: center;
 }
 
 .logo {
@@ -16,7 +16,7 @@ input {
   padding: 10px;
   border-radius: 4px;
   border: 10px;
-  width: 200px
+  width: 200px;
 }
 
 .Results {
@@ -25,12 +25,76 @@ input {
   border-radius: 8px;
   color: black;
   padding: 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .map-container {
   margin: auto;
   width: 80%;
   border-radius: 25px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.Mist {
+  background-image: url(./assets/backgrounds/mist.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Rain {
+  background-image: url(./assets/backgrounds/rain.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Clouds {
+  background-image: url(./assets/backgrounds/clouds.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Clear {
+  background-image: url(./assets/backgrounds/clear.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Thunderstorm {
+  background-image: url(./assets/backgrounds/thunderstorm.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Snow {
+  background-image: url(./assets/backgrounds/snow.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Drizzle {
+  background-image: url(./assets/backgrounds/drizzle.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Haze {
+  background-image: url(./assets/backgrounds/haze.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
 }

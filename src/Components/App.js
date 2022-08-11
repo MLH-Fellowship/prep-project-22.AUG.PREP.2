@@ -16,6 +16,7 @@ export default function App() {
   const [results, setResults] = useState(null);
 
   const geolocateUser = useLocation();
+  const [background, setBackground] = useState("")
 
   // Fetch data based on geolocation
   function getUserLocation() {
@@ -45,6 +46,7 @@ export default function App() {
           } else {
             setIsLoaded(true);
             setResults(result);
+            setBackground(result.weather[0].main)
           }
         },
         (error) => {
@@ -59,7 +61,7 @@ export default function App() {
   } else {
     return (
       <>
-        <div>
+        <div className={background}>
           <img className="logo" src={logo} alt="MLH Prep Logo"></img>
           <h2>Enter a city below 👇</h2>
           <SearchComponent city={city} changeCity={setCity} />
