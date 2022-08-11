@@ -11,6 +11,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
+  const [coords, setCoords] = useState(null)
   const [results, setResults] = useState(null);
 
   useEffect(() => { // weather
@@ -21,6 +22,7 @@ export default function App() {
           if (result['cod'] !== 200) {
             setIsLoaded(false)
           } else {
+            setCoords({lat: result.coord.lat, lon: result.coord.lon})
             setIsLoaded(true);
             setResults(result);
           }
@@ -43,7 +45,7 @@ export default function App() {
           <SearchComponent city={city} changeCity={setCity} />
           <ResultsComponent isLoaded={isLoaded} results={results}/>
           {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
-          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
+          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords}/>
         </div>
       </>
     )

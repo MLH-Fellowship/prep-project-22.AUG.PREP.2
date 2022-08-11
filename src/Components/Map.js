@@ -3,7 +3,7 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm95Z2JldiIsImEiOiJjbDFjYzF2ajUwMHgzM2NwcXBzdWVxM3ZvIn0.2k8N-UN2Y7ZdT5vwml9QAw';
 
-export default function Map({ setIsLoaded, setResults, setError }) {
+export default function Map({ setIsLoaded, setResults, setError, coords }) {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [lng, setLng] = useState(-70.9);
@@ -47,6 +47,18 @@ export default function Map({ setIsLoaded, setResults, setError }) {
             )
         });
     }, []);
+
+    useEffect(() => {
+        if (coords != null) {
+            map.current.setCenter([coords.lon, coords.lat])
+            setMarker(marker => {
+                if (marker) marker.remove()
+                return new mapboxgl.Marker()
+                        .setLngLat([coords.lon, coords.lat])
+                        .addTo(map.current)
+            });
+        }
+    }, [coords]);
 
     return (
         <>
