@@ -6,6 +6,7 @@ import ResultsComponent from "./ResultsComponent";
 import SearchComponent from "./SearchComponent";
 import RequiredItems from "./RequiredItems";
 import useLocation from "../Hooks/useLocation";
+import GetMyLocationButton from "./GetMyLocationButton";
 import Map from "./Map";
 
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
   const geolocateUser = useLocation();
 
   // Fetch data based on geolocation
-  useEffect(() => {
+  function getUserLocation() {
     if (geolocateUser.length !== 0) {
       fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${geolocateUser[0]}&lon=${geolocateUser[1]}&limit=1&appid=${process.env.REACT_APP_APIKEY}`)
         .then(res => res.json())
@@ -31,7 +32,7 @@ export default function App() {
           }
         )
     }
-  }, [geolocateUser]);
+  }
 
   // Fetch data based on user input
   useEffect(() => { // weather
@@ -62,6 +63,7 @@ export default function App() {
           <img className="logo" src={logo} alt="MLH Prep Logo"></img>
           <h2>Enter a city below 👇</h2>
           <SearchComponent city={city} changeCity={setCity} />
+          <GetMyLocationButton getUserLocation={getUserLocation}/>
           <ResultsComponent isLoaded={isLoaded} results={results}/>
           {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
