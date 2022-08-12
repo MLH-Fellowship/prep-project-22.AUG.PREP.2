@@ -32,10 +32,7 @@ jobs:
     - name: Install Dependencies
       run: npm i
 
-    - name: Build Project
-      run: npm run build
-
-    - name: Deploy Project
+    - name: Build & Deploy Project
       run: |
         git config --global user.name $user_name
         git config --global user.email $user_email
