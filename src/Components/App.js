@@ -8,6 +8,7 @@ import RequiredItems from "./RequiredItems";
 import useLocation from "../Hooks/useLocation";
 import GetMyLocationButton from "./GetMyLocationButton";
 import Map from "./Map";
+import Footer from "./Footer/Footer";
 
 export default function App() {
   const [error, setError] = useState(null);
@@ -69,6 +70,7 @@ export default function App() {
           <ResultsComponent isLoaded={isLoaded} results={results}/>
           {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
+          <Footer />
         </div>
       </>
     )
