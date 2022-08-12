@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "./static/css/main.b1b41235.chunk.css",
+    "main.js": "./static/js/main.32d0ddfe.chunk.js",
+    "main.js.map": "./static/js/main.32d0ddfe.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.47e80ee8.js",
+    "runtime-main.js.map": "./static/js/runtime-main.47e80ee8.js.map",
+    "static/css/2.ed400f59.chunk.css": "./static/css/2.ed400f59.chunk.css",
+    "static/js/2.ee9ac746.chunk.js": "./static/js/2.ee9ac746.chunk.js",
+    "static/js/2.ee9ac746.chunk.js.map": "./static/js/2.ee9ac746.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.ed400f59.chunk.css.map": "./static/css/2.ed400f59.chunk.css.map",
+    "static/css/main.b1b41235.chunk.css.map": "./static/css/main.b1b41235.chunk.css.map",
+    "static/js/2.ee9ac746.chunk.js.LICENSE.txt": "./static/js/2.ee9ac746.chunk.js.LICENSE.txt",
+    "static/media/cap.474e6898.png": "./static/media/cap.474e6898.png",
+    "static/media/App.css": "./static/media/thunderstorm.0c432eea.jpg",
+    "static/media/flashlight.6563cb05.png": "./static/media/flashlight.6563cb05.png",
+    "static/media/gloves.45497ed2.png": "./static/media/gloves.45497ed2.png",
+    "static/media/goggles.faf692a2.png": "./static/media/goggles.faf692a2.png",
+    "static/media/jacket.58fadea5.png": "./static/media/jacket.58fadea5.png",
+    "static/media/mask.e0e07086.png": "./static/media/mask.e0e07086.png",
+    "static/media/mlh-prep.270f6887.png": "./static/media/mlh-prep.270f6887.png",
+    "static/media/raincoat.376a8ef2.png": "./static/media/raincoat.376a8ef2.png",
+    "static/media/scarf.fbb31feb.png": "./static/media/scarf.fbb31feb.png",
+    "static/media/suncream.d8793979.png": "./static/media/suncream.d8793979.png",
+    "static/media/sunglasses.6c5f1538.png": "./static/media/sunglasses.6c5f1538.png",
+    "static/media/umbrella.df170598.png": "./static/media/umbrella.df170598.png",
+    "static/media/watch.f0a65ecb.png": "./static/media/watch.f0a65ecb.png",
+    "static/media/water_proof_boots.a48e94f8.png": "./static/media/water_proof_boots.a48e94f8.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.47e80ee8.js",
+    "static/css/2.ed400f59.chunk.css",
+    "static/js/2.ee9ac746.chunk.js",
+    "static/css/main.b1b41235.chunk.css",
+    "static/js/main.32d0ddfe.chunk.js"
+  ]
+}
