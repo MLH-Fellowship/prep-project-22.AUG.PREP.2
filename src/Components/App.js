@@ -22,7 +22,7 @@ export default function App() {
   // Fetch data based on geolocation
   function getUserLocation() {
     if (geolocateUser.length !== 0) {
-      fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${geolocateUser[0]}&lon=${geolocateUser[1]}&limit=1&appid=${process.env.REACT_APP_APIKEY}`)
+      fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${geolocateUser[0]}&lon=${geolocateUser[1]}&limit=1&appid=${process.env.REACT_APP_APIKEY}`)
         .then(res => res.json())
         .then(
           (result) => {
