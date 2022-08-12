@@ -50,7 +50,8 @@ export default function Map({ setIsLoaded, setResults, setError, coords }) {
 
     useEffect(() => {
         if (coords != null) {
-            map.current.setCenter([coords.lon, coords.lat])
+            map.current.setCenter([coords.lon, coords.lat]);
+            map.current.setZoom(9);
             setMarker(marker => {
                 if (marker) marker.remove()
                 return new mapboxgl.Marker()
