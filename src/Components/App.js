@@ -5,7 +5,6 @@ import ErrorComponent from "./ErrorComponent";
 import ResultsComponent from "./ResultsComponent";
 import SearchComponent from "./SearchComponent";
 import RequiredItems from "./RequiredItems";
-// import useLocation from "../Hooks/useLocation";
 import GetMyLocationButton from "./GetMyLocationButton";
 import Map from "./Map";
 
@@ -14,7 +13,6 @@ export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
   const [results, setResults] = useState(null);
-
   const [background, setBackground] = useState("")
 
   // Fetch data based on geolocation
