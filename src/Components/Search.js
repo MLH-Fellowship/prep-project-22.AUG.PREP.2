@@ -1,3 +1,4 @@
+import "../assets/styles/Search.css"
 
 export default function SearchComponent({city, changeCity}) {
 
@@ -5,6 +6,7 @@ export default function SearchComponent({city, changeCity}) {
         <input
           type="text"
           value={city}
+          className="search-input"
           onChange={event => changeCity(event.target.value)} />
     )
 }

@@ -1,4 +1,4 @@
-import RequiredItem from './RequiredItem'
+import "../assets/styles/RequiredItems.css"
 import Cap from '../assets/img/cap.png'
 import Gloves from '../assets/img/gloves.png' 
 import Jacket from '../assets/img/jacket.png'
@@ -47,10 +47,18 @@ const RequiredItems = ({ weatherKind }) => {
     }
 
     return (
-        <>
-            {getItems(weatherKind) !== undefined && getItems(weatherKind).map((ele, index) => { 
-                return <RequiredItem img_src={ele} key={index} />})}
-        </>
+        <div className='items-container'>
+            {
+                getItems(weatherKind) !== undefined && 
+                getItems(weatherKind).map((ele, index) => { 
+                    return (
+                        <div key={index} className="items-card">
+                            <img src={ele} alt="required item" />
+                        </div>
+                    )
+                })
+            }
+        </div>
     )
 }
 

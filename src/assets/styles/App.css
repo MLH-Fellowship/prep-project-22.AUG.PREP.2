@@ -1,0 +1,71 @@
+body {
+  background-color: #133667;
+  color: white;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 80%;
+  gap: 40px;
+  padding: 20px 0px;
+}
+
+/* Background Images */
+.Mist,
+.Rain,
+.Clouds,
+.Clear,
+.Thunderstorm,
+.Snow,
+.Drizzle,
+.Haze {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: 0.5s ease-out;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.Mist {
+  background-image: url(../backgrounds/mist.jpg);
+}
+
+.Rain {
+  background-image: url(../backgrounds/rain.jpg);
+}
+
+.Clouds {
+  background-image: url(../backgrounds/clouds.jpg);
+}
+
+.Clear {
+  background-image: url(../backgrounds/clear.jpg);
+}
+
+.Thunderstorm {
+  background-image: url(../backgrounds/thunderstorm.jpg);
+}
+
+.Snow {
+  background-image: url(../backgrounds/snow.jpg);
+}
+
+.Drizzle {
+  background-image: url(../backgrounds/drizzle.jpg);
+}
+
+.Haze {
+  background-image: url(../backgrounds/haze.jpg);
+}
