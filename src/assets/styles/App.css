@@ -31,6 +31,7 @@ body {
 .Haze {
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   transition: 0.5s ease-out;
   height: 100%;
   padding-top: 20px;
