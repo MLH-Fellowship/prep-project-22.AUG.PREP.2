@@ -12,6 +12,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
+  const [coords, setCoords] = useState(null)
   const [results, setResults] = useState(null);
   const [background, setBackground] = useState("")
 
@@ -54,6 +55,7 @@ export default function App() {
           if (result['cod'] !== 200) {
             setIsLoaded(false)
           } else {
+            setCoords({lat: result.coord.lat, lon: result.coord.lon})
             setIsLoaded(true);
             setResults(result);
             setBackground(result.weather[0].main)
@@ -80,7 +82,7 @@ export default function App() {
             <ResultsComponent isLoaded={isLoaded} results={results}/>
             {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           </div>
-          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
+          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords}/>
         </div>
       </>
     )
