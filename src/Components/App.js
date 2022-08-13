@@ -21,27 +21,26 @@ export default function App() {
 
     // Use Geolocation API to locate user coordinates
     const geolocateUser = new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(function(pos) {
+      navigator.geolocation.getCurrentPosition(function (pos) {
         let lat = pos.coords.latitude
         let lon = pos.coords.longitude
-        resolve({lat,lon});
+        resolve({ lat, lon });
       }, error)
     })
 
-    // Use coordinates to find city
+    // Use coordinates to fetch weather
     geolocateUser.then(res => {
-      fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${res.lat}&lon=${res.lon}&limit=1&appid=${process.env.REACT_APP_APIKEY}`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.lat}&lon=${res.lon}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
       .then(res => res.json())
-      .then(
-        (result) => {
-          setCity(result[0].name);
-          setIsLoaded(true);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
+      .then((result) => {
+        setIsLoaded(true)
+        setCity(result.name)
+        setResults(result)
+      },
+      (error) => {
+        setIsLoaded(true)
+        setError(error)
+      })
     })
   }
 
@@ -54,14 +53,14 @@ export default function App() {
           if (result['cod'] !== 200) {
             setIsLoaded(false)
           } else {
-            setIsLoaded(true);
-            setResults(result);
+            setIsLoaded(true)
+            setResults(result)
             setBackground(result.weather[0].main)
           }
         },
         (error) => {
-          setIsLoaded(true);
-          setError(error);
+          setIsLoaded(true)
+          setError(error)
         }
       )
   }, [city])
