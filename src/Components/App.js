@@ -66,8 +66,10 @@ export default function App() {
           <h2>Enter a city below 👇</h2>
           <SearchComponent city={city} changeCity={setCity} />
           <GetMyLocationButton getUserLocation={getUserLocation}/>
-          <ResultsComponent isLoaded={isLoaded} results={results}/>
-          {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
+          <div className="card-container">
+            <ResultsComponent isLoaded={isLoaded} results={results}/>
+            {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
+          </div>
           <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
         </div>
       </>

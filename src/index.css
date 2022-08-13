@@ -12,36 +12,4 @@ code {
     monospace;
 }
 
-.map-container {
-  height: 400px;
-}
 
-.sidebar {
-  background-color: rgba(35, 55, 75, 0.9);
-  color: #fff;
-  padding: 6px 12px;
-  font-family: monospace;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 12px;
-  border-radius: 4px;
-}
-
-/* For required items to be brought */
-.card {
-  display: inline-block;
-  background: white;
-  border-radius: 8px;
-  cursor: pointer;
-  border: 1px solid white;
-  margin: 0px 20px 20px 0px;
-  padding: 10px 15px;
-  box-shadow: 0px 0px 4px wheat;
-}
-
-.card img {
-  max-width: 120px;
-  max-height: 120px;
-}

@@ -47,10 +47,10 @@ const RequiredItems = ({ weatherKind }) => {
     }
 
     return (
-        <>
+        <div className='items-card'>
             {getItems(weatherKind) !== undefined && getItems(weatherKind).map((ele, index) => { 
                 return <RequiredItem img_src={ele} key={index} />})}
-        </>
+        </div>
     )
 }
 
