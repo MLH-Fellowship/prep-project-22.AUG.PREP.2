@@ -17,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "node scripts/gh-pages-homepage-add.js && npm run build",
     "deploy": "gh-pages -d build",
+    "postdeploy": "node scripts/gh-pages-homepage-delete.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
