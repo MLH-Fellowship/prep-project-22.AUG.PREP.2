@@ -1,0 +1,97 @@
+
+.items-card-container {
+  width: 50%;
+  background-color: white;
+  border-radius: 12px;
+  color: black;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  padding: auto 0px;
+}
+
+/* For required items to be brought */
+.items-card {
+  display: inline;
+}
+
+.items-card img {
+  max-width: 30%;
+  margin: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  .card-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .Results,
+  .items-card {
+    width: 100%;
+  }
+}
+
+/* Background Images */
+.Mist {
+  background-image: url(../backgrounds/mist.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Rain {
+  background-image: url(../backgrounds/rain.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Clouds {
+  background-image: url(../backgrounds/clouds.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Clear {
+  background-image: url(../backgrounds/clear.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Thunderstorm {
+  background-image: url(../backgrounds/thunderstorm.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Snow {
+  background-image: url(../backgrounds/snow.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Drizzle {
+  background-image: url(../backgrounds/drizzle.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}
+
+.Haze {
+  background-image: url(../backgrounds/haze.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s ease-out;
+  height: 100%;
+}

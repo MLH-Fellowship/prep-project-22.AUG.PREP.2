@@ -1,3 +1,4 @@
+import "../assets/styles/RequiredItems.css"
 import Cap from '../assets/img/cap.png'
 import Gloves from '../assets/img/gloves.png' 
 import Jacket from '../assets/img/jacket.png'
