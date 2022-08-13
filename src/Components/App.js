@@ -14,7 +14,7 @@ export default function App() {
   const [city, setCity] = useState("New York City")
   const [results, setResults] = useState(null);
   const [background, setBackground] = useState("")
-  
+
   // Fetch data based on geolocation
   function getUserLocation() {
     setIsLoaded(false);
@@ -30,7 +30,7 @@ export default function App() {
 
     // Use coordinates to fetch weather
     geolocateUser.then(res => {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.lat}&lon=${res.lon}&appid=${process.env.REACT_APP_APIKEY}`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.lat}&lon=${res.lon}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
       .then(res => res.json())
       .then((result) => {
         setIsLoaded(true)
