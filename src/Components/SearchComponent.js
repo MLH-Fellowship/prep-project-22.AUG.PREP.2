@@ -4,8 +4,8 @@ import PlacesAutocomplete, {
     getLatLng
   } from "react-places-autocomplete";
 
-export default function SearchComponent({changeCity}) {
-    const [city, setCity] = React.useState("");
+export default function SearchComponent({city, changeCity}) {
+    //const [city, setCity] = React.useState("");
     const [coordinates, setCoordinates] = React.useState({
     lat: null,
     lng: null
@@ -13,7 +13,7 @@ export default function SearchComponent({changeCity}) {
     const handleSelect = async value => {
         const results = await geocodeByAddress(value);
         const latLng = await getLatLng(results[0]);
-        setCity(value);
+        changeCity(value);
         setCoordinates(latLng);
       };
       
@@ -21,7 +21,7 @@ export default function SearchComponent({changeCity}) {
         <div>
       <PlacesAutocomplete
         value={city}
-        onChange={setCity}
+        onChange={changeCity}
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
