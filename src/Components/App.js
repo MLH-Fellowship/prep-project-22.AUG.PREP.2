@@ -70,7 +70,7 @@ export default function App() {
   } else {
     return (
       <>
-        <div className={background}>
+        <div className={isLoaded && results && background}>
           <img className="logo" src={logo} alt="MLH Prep Logo"></img>
           <h2>Enter a city below 👇</h2>
           <SearchComponent city={city} changeCity={setCity} />
