@@ -1,11 +1,11 @@
-.items-card-container {
+.items-container {
   width: 50%;
   background-color: white;
   border-radius: 12px;
   color: black;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
-  padding: auto 0px;
+  padding: auto;
 }
 
 .items-card {
@@ -24,7 +24,7 @@
   }
 
   .Results,
-  .items-card {
+  .items-container {
     width: 100%;
   }
 }

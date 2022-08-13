@@ -47,7 +47,7 @@ const RequiredItems = ({ weatherKind }) => {
     }
 
     return (
-        <div className='items-card-container'>
+        <div className='items-container'>
             {
                 getItems(weatherKind) !== undefined && 
                 getItems(weatherKind).map((ele, index) => { 
