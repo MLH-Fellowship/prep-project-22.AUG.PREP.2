@@ -38,7 +38,6 @@ export default function App() {
 
   // Fetch data based on user input
   useEffect(() => { // weather
-    console.log(city);
     const fetchData = setTimeout(() => { // fetch data after user stops typing 
       console.log("fetch")
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
