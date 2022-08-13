@@ -9,7 +9,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 20%;
-  margin-top: 20px;
 }
 
 .card-container {
@@ -34,6 +33,8 @@ body {
   background-repeat: no-repeat;
   transition: 0.5s ease-out;
   height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .Mist {
