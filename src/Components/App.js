@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import '../App.css';
 import logo from '../mlh-prep.png';
-import ErrorComponent from "./ErrorComponent";
-import ResultsComponent from "./ResultsComponent";
-import SearchComponent from "./SearchComponent";
+import ErrorComponent from "./Error";
+import ResultsComponent from "./Results";
+import SearchComponent from "./Search";
 import RequiredItems from "./RequiredItems";
 import useLocation from "../Hooks/useLocation";
 import GetMyLocationButton from "./GetMyLocationButton";
