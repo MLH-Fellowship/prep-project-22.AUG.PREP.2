@@ -9,6 +9,7 @@ export default function Map({ setIsLoaded, setResults, setError }) {
     const [lng, setLng] = useState(-70.9);
     const [lat, setLat] = useState(42.35);
     const [zoom, setZoom] = useState(9);
+    const [mapStyle, setMapStyle] = useState("streets-v11");
 
     useEffect(() => { // mapbox
     if (map.current) return; // initialize map only once
@@ -40,9 +41,37 @@ export default function Map({ setIsLoaded, setResults, setError }) {
     });
     }, []);
 
+    useEffect(() => {
+        map.current.setStyle('mapbox://styles/mapbox/' + mapStyle);
+    }, [mapStyle])
+
     return (
         <>
-          <div ref={mapContainer} className="map-container" />
+            <div ref={mapContainer} className="map-container">
+                <details className="map-styles">
+                    <summary>Map Styles</summary>
+                    <div className="map-radio-btn">
+                        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked={mapStyle == "satellite-v9"} onChange={() => setMapStyle("satellite-v9")}/>
+                        <label htmlFor="satellite-v9">Satellite</label>
+                    </div>
+                    <div className="map-radio-btn">
+                        <input id="light-v10" type="radio" name="rtoggle" value="light" checked={mapStyle == "light-v10"} onChange={() => setMapStyle("light-v10")}/>
+                        <label htmlFor="light-v10">Light</label>
+                    </div>
+                    <div className="map-radio-btn">
+                        <input id="dark-v10" type="radio" name="rtoggle" value="dark" checked={mapStyle == "dark-v10"} onChange={() => setMapStyle("dark-v10")}/>
+                        <label htmlFor="dark-v10">Dark</label>
+                    </div>
+                    <div className="map-radio-btn">
+                        <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked={mapStyle == "streets-v11"} onChange={() => setMapStyle("streets-v11")}/>
+                        <label htmlFor="streets-v11">Streets</label>
+                    </div>
+                    <div className="map-radio-btn">
+                        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" checked={mapStyle == "outdoors-v11"} onChange={() => setMapStyle("outdoors-v11")}/>
+                        <label htmlFor="outdoors-v11">Outdoors</label>
+                    </div>
+                </details>
+            </div>
         </>
     )
 }
