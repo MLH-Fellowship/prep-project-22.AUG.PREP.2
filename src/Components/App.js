@@ -39,7 +39,7 @@ export default function App() {
         <div>
           <img className="logo" src={logo} alt="MLH Prep Logo"></img>
           <h2>Enter a city below 👇</h2>
-          <SearchComponent city={city} onChange={setCity}/>
+          <SearchComponent city={city} />
           <ResultsComponent isLoaded={isLoaded} results={results}/>
           <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
         </div>

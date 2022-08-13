@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
     getLatLng
   } from "react-places-autocomplete";
 
-export default function SearchComponent({}) {
+export default function SearchComponent({changeCity}) {
     const [city, setCity] = React.useState("");
     const [coordinates, setCoordinates] = React.useState({
     lat: null,
@@ -29,14 +29,15 @@ export default function SearchComponent({}) {
             <p>Latitude: {coordinates.lat}</p>
             <p>Longitude: {coordinates.lng}</p>
 
-            <input {...getInputProps({ placeholder: "Type city" })} />
+            <input {...getInputProps({ placeholder: "Type city" })} 
+             />
 
             <div>
               {loading ? <div>...loading</div> : null}
 
               {suggestions.map(suggestion => {
                 const style = {
-                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                  backgroundColor: suggestion.active ? "#0" : "#0"
                 };
 
                 return (
