@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax 
-
+import "../assets/styles/Map.css"
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm95Z2JldiIsImEiOiJjbDFjYzF2ajUwMHgzM2NwcXBzdWVxM3ZvIn0.2k8N-UN2Y7ZdT5vwml9QAw';
 
 export default function Map({ setIsLoaded, setResults, setError }) {
