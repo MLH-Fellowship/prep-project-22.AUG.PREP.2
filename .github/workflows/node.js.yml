@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    if: ${{ false }}  # disable for now (remove this line to enable the workflow)
     env:
       CI: ""
 
