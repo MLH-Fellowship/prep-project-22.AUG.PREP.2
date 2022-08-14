@@ -21,6 +21,8 @@ jobs:
                   MY_KEY: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
 
   build:
+    env:
+      CI: "" # This line disables warnings from stopping the workflow
 
     runs-on: ubuntu-latest
     needs: [check-secret]
