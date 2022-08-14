@@ -56,6 +56,8 @@ export default function App() {
           } else {
             setCoords({lat: result.coord.lat, lon: result.coord.lon})
             setBackground(result.weather[0].main)
+            setResults(result);
+            setIsLoaded(true);
           }
         },
         (error) => {
