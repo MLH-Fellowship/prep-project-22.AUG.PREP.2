@@ -3,7 +3,7 @@ import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
   } from "react-places-autocomplete";
-
+import "../assets/styles/Search.css"
   let suggestionElementContainer = {
     maxWidth: "800px",
     margin: "0 auto",
@@ -33,10 +33,10 @@ export default function SearchComponent({city, changeCity}) {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <p>Latitude: {coordinates.lat}</p>
-            <p>Longitude: {coordinates.lng}</p>
+            {/* <p>Latitude: {coordinates.lat}</p>
+            <p>Longitude: {coordinates.lng}</p> */}
 
-            <input {...getInputProps({ placeholder: "Type city" })} 
+            <input className="search-input" {...getInputProps({ placeholder: "Type city" })} 
              />
 
             <div style={suggestionElementContainer}>
