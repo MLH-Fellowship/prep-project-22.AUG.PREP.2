@@ -4,6 +4,13 @@ import PlacesAutocomplete, {
     getLatLng
   } from "react-places-autocomplete";
 
+  let suggestionElementContainer = {
+    maxWidth: "800px",
+    margin: "0 auto",
+    color: "#2b2929",
+    marginTop: "5px"
+  }
+
 export default function SearchComponent({city, changeCity}) {
     //const [city, setCity] = React.useState("");
     const [coordinates, setCoordinates] = React.useState({
@@ -32,13 +39,13 @@ export default function SearchComponent({city, changeCity}) {
             <input {...getInputProps({ placeholder: "Type city" })} 
              />
 
-            <div>
+            <div style={suggestionElementContainer}>
               {loading ? <div>...loading</div> : null}
 
               {suggestions.map(suggestion => {
                 const style = {
-                  backgroundColor: suggestion.active ? "#0" : "#0"
-                };
+                  backgroundColor: suggestion.active ? "#86c9e3" : "#fff"
+                }
 
                 return (
                   <div {...getSuggestionItemProps(suggestion, { style })}>
