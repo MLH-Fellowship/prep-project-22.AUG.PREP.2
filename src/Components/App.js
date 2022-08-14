@@ -12,7 +12,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
-  const [coords, setCoords] = useState({lng: -70.9, lat: 42.35})
+  const [coords, setCoords] = useState({lng: -70.9, lat: 42.35, center: false})
   const [results, setResults] = useState(null);
   const [background, setBackground] = useState("")
 
@@ -54,7 +54,7 @@ export default function App() {
           if (result['cod'] !== 200) {
             setIsLoaded(false)
           } else {
-            setCoords({lat: result.coord.lat, lng: result.coord.lon})
+            setCoords({lat: result.coord.lat, lng: result.coord.lon, center: true})
             setIsLoaded(true);
             setResults(result);
             setBackground(result.weather[0].main)

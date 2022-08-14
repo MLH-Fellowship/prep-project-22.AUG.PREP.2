@@ -5,7 +5,6 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicm95Z2JldiIsImEiOiJjbDFjYzF2ajUwMHgzM2NwcXBzd
 
 export default function Map({ setIsLoaded, setResults, setError, coords, setCoords }) {
     const lng = coords.lng, lat = coords.lat;
-    console.log("loaded")
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [mapStyle, setMapStyle] = useState("streets-v11");
@@ -48,8 +47,10 @@ export default function Map({ setIsLoaded, setResults, setError, coords, setCoor
 
     useEffect(() => {
         if (coords != null) {
-            map.current.setCenter([lng, lat]);
-            map.current.setZoom(9);
+            if (coords.center) {
+                map.current.setCenter([lng, lat]);
+                map.current.setZoom(9);
+            }
             setMarker(marker => {
                 if (marker) marker.remove()
                 return new mapboxgl.Marker()
