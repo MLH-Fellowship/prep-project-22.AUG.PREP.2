@@ -12,7 +12,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
-  const [coords, setCoords] = useState(null)
+  const [coords, setCoords] = useState({lng: -70.9, lat: 42.35})
   const [results, setResults] = useState(null);
   const [background, setBackground] = useState("")
 
@@ -22,27 +22,26 @@ export default function App() {
 
     // Use Geolocation API to locate user coordinates
     const geolocateUser = new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(function(pos) {
+      navigator.geolocation.getCurrentPosition(function (pos) {
         let lat = pos.coords.latitude
         let lon = pos.coords.longitude
-        resolve({lat,lon});
+        resolve({ lat, lon });
       }, error)
     })
 
-    // Use coordinates to find city
+    // Use coordinates to fetch weather
     geolocateUser.then(res => {
-      fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${res.lat}&lon=${res.lon}&limit=1&appid=${process.env.REACT_APP_APIKEY}`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.lat}&lon=${res.lon}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
       .then(res => res.json())
-      .then(
-        (result) => {
-          setCity(result[0].name);
-          setIsLoaded(true);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
+      .then((result) => {
+        setIsLoaded(true)
+        setCity(result.name)
+        setResults(result)
+      },
+      (error) => {
+        setIsLoaded(true)
+        setError(error)
+      })
     })
   }
 
@@ -55,15 +54,15 @@ export default function App() {
           if (result['cod'] !== 200) {
             setIsLoaded(false)
           } else {
-            setCoords({lat: result.coord.lat, lon: result.coord.lon})
+            setCoords({lat: result.coord.lat, lng: result.coord.lon})
             setIsLoaded(true);
             setResults(result);
             setBackground(result.weather[0].main)
           }
         },
         (error) => {
-          setIsLoaded(true);
-          setError(error);
+          setIsLoaded(true)
+          setError(error)
         }
       )
   }, [city])
@@ -73,7 +72,7 @@ export default function App() {
   } else {
     return (
       <>
-        <div className={isLoaded && results && background}>
+        <div className={(isLoaded && results) ? background : undefined}>
           <img className="logo" src={logo} alt="MLH Prep Logo"></img>
           <h2>Enter a city below 👇</h2>
           <SearchComponent city={city} changeCity={setCity} />
@@ -82,7 +81,7 @@ export default function App() {
             <ResultsComponent isLoaded={isLoaded} results={results}/>
             {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           </div>
-          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords}/>
+          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} setCoords={setCoords} />
         </div>
       </>
     )
