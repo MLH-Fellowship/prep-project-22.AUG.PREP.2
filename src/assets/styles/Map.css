@@ -5,3 +5,24 @@
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
+.map-styles {
+  z-index: 10;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  background-color: white;
+  border-radius: 12px;
+  color: black;
+  padding: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  text-align: left;
+
+}
+
+.map-radio-btn input[type="radio"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
