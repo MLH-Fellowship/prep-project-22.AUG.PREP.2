@@ -13,6 +13,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
+  const [coords, setCoords] = useState(null)
   const [results, setResults] = useState(null);
   const [background, setBackground] = useState("")
 
@@ -54,9 +55,10 @@ export default function App() {
           if (result['cod'] !== 200) {
             setIsLoaded(false)
           } else {
-            setIsLoaded(true)
-            setResults(result)
+            setCoords({lat: result.coord.lat, lon: result.coord.lon})
             setBackground(result.weather[0].main)
+            setResults(result);
+            setIsLoaded(true);
           }
         },
         (error) => {
@@ -75,12 +77,12 @@ export default function App() {
           <img className="logo" src={logo} alt="MLH Prep Logo"></img>
           <h2>Enter a city below 👇</h2>
           <SearchComponent city={city} changeCity={setCity} />
-          <GetMyLocationButton getUserLocation={getUserLocation}/>
+          <GetMyLocationButton getUserLocation={getUserLocation} />
           <div className="card-container">
             <ResultsComponent isLoaded={isLoaded} results={results}/>
             {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           </div>
-          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} />
+          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} />
           <Footer />
         </div>
       </>
