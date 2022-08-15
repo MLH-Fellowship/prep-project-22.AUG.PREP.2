@@ -1,3 +1,4 @@
+import "../assets/styles/Results.css"
 
 export default function ResultsComponent({isLoaded, results}) {
 

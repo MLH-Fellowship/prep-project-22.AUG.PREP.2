@@ -1,41 +1,46 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Github Pages CI/CD
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
+
+  check-secret:
+        runs-on: ubuntu-latest
+        outputs:
+          my-key: ${{ steps.my-key.outputs.defined }}
+        steps:
+            - id: my-key
+              if: "${{ env.MY_KEY != '' }}"
+              run: echo "::set-output name=defined::true"
+              env:
+                  MY_KEY: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+
   build:
     env:
-      CI: ""
+      CI: "" # This line disables warnings from stopping the workflow
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    needs: [check-secret]
+    if: needs.check-secret.outputs.my-key == 'true'
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
     - name: Install Dependencies
       run: npm i
 
-    - name: Build Project
-      run: npm run build
-
-    - name: Deploy Project
+    - name: Build & Deploy Project
       run: |
         git config --global user.name $user_name
         git config --global user.email $user_email
@@ -46,3 +51,4 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
+        REACT_APP_APIKEY: ${{ secrets.REACT_APP_APIKEY }}
