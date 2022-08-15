@@ -1,0 +1,29 @@
+.footer {
+  margin-top: 1rem;
+  padding: 8rem 0rem 2rem 0rem;
+  background-image: url("../../assets/city2.png");
+  background-size: contain;
+  /* background-color: #133667; */
+  position: relative;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  width: 100%; 
+  height: auto;
+  /* text-align: bottom; */
+  /* justify-content:flex-start; */
+  
+}
+
+.mlh-prep-logo {
+  width: 10%;
+  height: 10%;
+  padding: 4rem 0rem 0rem 4rem;
+  margin-top: 10px;
+  object-fit: cover;
+}
+
+.footer-text {
+  padding: 4rem 0rem 0rem 2rem;
+
+}
