@@ -13,7 +13,7 @@ import {
   WiSmoke
 } from "weather-icons-react"
 
-export default function ResultsComponent({ isLoaded, results, weatherCard }) {
+export default function ResultsComponent({ isLoaded, results }) {
 
   // Weather card
   const getItems = (x, size) => {
