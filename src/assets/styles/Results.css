@@ -3,6 +3,54 @@
   width: 50%;
   border-radius: 12px;
   color: black;
-  /* padding: 10px; */
+  text-align: left;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.Results .place {
+  display: flex;
+  padding-left: 26px;
+}
+
+.Results .city-name {
+  font-size: 35px;
+  font-weight: bold;
+  padding-top: 30px;
+}
+
+.Results .country-name {
+  font-size: 25px;
+  padding-top: 42px;
+}
+
+.Results .weather-card {
+  padding-top: 30px;
+  padding-left: 30px;
+  display: flex;
+}
+
+.Results .weather-card .degree {
+  font-size: 50px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.Results .weather-card .circle {
+  font-size: 35px;
+  font-weight: normal;
+  padding-top: 10px;
+}
+
+.Results .weather-card .celsius {
+  font-size: 28px;
+  font-weight: normal;
+  padding-top: 25px;
+}
+
+.Results .feels-like {
+  font-size: 18px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
