@@ -1,20 +1,19 @@
 .items-container {
   width: 50%;
-  background-color: white;
-  border-radius: 12px;
-  color: black;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-
-  padding: auto;
+  display: flex;
 }
 
 .items-card {
-  display: inline;
+  max-width: 30%;
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .items-card img {
-  max-width: 30%;
-  margin: 5px;
+  max-width: 70%;
+  margin: 25px 5px 5px 5px;
 }
 
 @media screen and (max-width: 800px) {
