@@ -1,29 +1,34 @@
 .footer {
   margin-top: 1rem;
-  padding: 8rem 0rem 2rem 0rem;
+  padding: 4rem 0rem 1rem 0rem;
   background-image: url("../../assets/city2.png");
   background-size: contain;
-  /* background-color: #133667; */
-  position: relative;
+  background-position: bottom;
+  background-repeat: repeat-x;
   display: flex;
   bottom: 0;
   left: 0;
   width: 100%; 
-  height: auto;
-  /* text-align: bottom; */
-  /* justify-content:flex-start; */
-  
+  height: 100%;
+}
+
+.footer-content {
+  margin-top: 1rem;
+  padding: 4rem 0rem 0rem 4rem;
+  text-align: left;
+  justify-content: center;
 }
 
 .mlh-prep-logo {
-  width: 10%;
-  height: 10%;
-  padding: 4rem 0rem 0rem 4rem;
-  margin-top: 10px;
+  width: 20%;
+  height: auto;
+  margin-top: 1rem;
+
+  padding: 4rem 0rem 0rem 0rem;
   object-fit: cover;
 }
 
-.footer-text {
-  padding: 4rem 0rem 0rem 2rem;
-
+.footer-content.footer-text {
+  width: auto;
+  height: au
 }
