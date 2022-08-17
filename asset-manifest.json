@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.ed4eed82.chunk.css",
+    "main.css": "./static/css/main.54517620.chunk.css",
     "main.js": "./static/js/main.fbdae95a.chunk.js",
     "main.js.map": "./static/js/main.fbdae95a.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.47e80ee8.js",
@@ -10,10 +10,10 @@
     "static/js/2.4334a8fb.chunk.js.map": "./static/js/2.4334a8fb.chunk.js.map",
     "index.html": "./index.html",
     "static/css/2.ed400f59.chunk.css.map": "./static/css/2.ed400f59.chunk.css.map",
-    "static/css/main.ed4eed82.chunk.css.map": "./static/css/main.ed4eed82.chunk.css.map",
+    "static/css/main.54517620.chunk.css.map": "./static/css/main.54517620.chunk.css.map",
     "static/js/2.4334a8fb.chunk.js.LICENSE.txt": "./static/js/2.4334a8fb.chunk.js.LICENSE.txt",
     "static/media/cap.e3b031b8.png": "./static/media/cap.e3b031b8.png",
-    "static/media/footer.css": "./static/media/city2.bbad62bb.png",
+    "static/media/footer.css": "./static/media/city2.4c85453c.png",
     "static/media/App.css": "./static/media/thunderstorm.1e560e98.jpg",
     "static/media/gloves.45497ed2.png": "./static/media/gloves.45497ed2.png",
     "static/media/goggles.ceabc751.png": "./static/media/goggles.ceabc751.png",
@@ -31,7 +31,7 @@
     "static/js/runtime-main.47e80ee8.js",
     "static/css/2.ed400f59.chunk.css",
     "static/js/2.4334a8fb.chunk.js",
-    "static/css/main.ed4eed82.chunk.css",
+    "static/css/main.54517620.chunk.css",
     "static/js/main.fbdae95a.chunk.js"
   ]
 }
