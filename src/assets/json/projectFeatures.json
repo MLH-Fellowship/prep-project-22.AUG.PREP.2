@@ -1,0 +1,20 @@
+[
+  {
+    "image": "./images/deploy.png",
+    "alt": "Image optimization on Github",
+    "feature": "Image optimization",
+    "desc": "We included Github actions that automatically compressed images to optimise front-end performance."
+  },
+  {
+    "image": "./images/deploy.png",
+    "alt": "Image optimization on Github",
+    "feature": "Automatic deployment to Netlify",
+    "desc": "We made the site automatically build + deploy to Netlify."
+  },
+  {
+    "image": "./images/deploy.png",
+    "alt": "Image optimization on Github",
+    "feature": "Feature map",
+    "desc": "Our Mapbox component updates based on your location or input."
+  }
+]

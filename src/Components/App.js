@@ -7,6 +7,7 @@ import SearchComponent from "./Search";
 import RequiredItems from "./RequiredItems";
 import GetMyLocationButton from "./GetMyLocationButton";
 import Map from "./Map";
+import About from "./About";
 import Footer from "./Footer/Footer";
 
 export default function App() {
@@ -16,6 +17,11 @@ export default function App() {
   const [coords, setCoords] = useState(null)
   const [results, setResults] = useState(null);
   const [background, setBackground] = useState("")
+  const [visible, setVisible] = useState(false);
+
+  function toggleVisibility() {
+    setVisible(!visible);
+  };
 
   // Fetch data based on geolocation
   function getUserLocation() {
@@ -33,16 +39,16 @@ export default function App() {
     // Use coordinates to fetch weather
     geolocateUser.then(res => {
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.lat}&lon=${res.lon}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
-      .then(res => res.json())
-      .then((result) => {
-        setIsLoaded(true)
-        setCity(result.name)
-        setResults(result)
-      },
-      (error) => {
-        setIsLoaded(true)
-        setError(error)
-      })
+        .then(res => res.json())
+        .then((result) => {
+          setIsLoaded(true)
+          setCity(result.name)
+          setResults(result)
+        },
+          (error) => {
+            setIsLoaded(true)
+            setError(error)
+          })
     })
   }
 
@@ -55,7 +61,7 @@ export default function App() {
           if (result['cod'] !== 200) {
             setIsLoaded(false)
           } else {
-            setCoords({lat: result.coord.lat, lon: result.coord.lon})
+            setCoords({ lat: result.coord.lat, lon: result.coord.lon })
             setBackground(result.weather[0].main)
             setResults(result);
             setIsLoaded(true);
@@ -79,10 +85,15 @@ export default function App() {
           <SearchComponent city={city} changeCity={setCity} />
           <GetMyLocationButton getUserLocation={getUserLocation} />
           <div className="card-container">
-            <ResultsComponent isLoaded={isLoaded} results={results}/>
+            <ResultsComponent isLoaded={isLoaded} results={results} />
             {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           </div>
           <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} />
+          <button onClick={toggleVisibility}>About this project</button>
+          <About
+            visible={visible}
+            toggleVisibility={toggleVisibility}
+          />
           <Footer />
         </div>
       </>

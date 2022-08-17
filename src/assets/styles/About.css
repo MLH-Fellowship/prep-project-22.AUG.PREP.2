@@ -1,0 +1,53 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.feature-image-container {
+  width: 40%;
+  height: auto;
+}
+
+.feature-image-container img {
+  border-radius: 1rem;
+  width: 100%;
+  object-fit: contain;
+}
+
+.feature-info {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+#modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#modal {
+  border-radius: 2rem;
+  background-color: rgb(26, 26, 26);
+  position: absolute;
+  top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 70%;
+  overflow: scroll;
+  width: 80vw;
+  padding: 2rem;
+}
