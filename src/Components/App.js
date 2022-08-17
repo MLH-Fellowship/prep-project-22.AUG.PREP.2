@@ -73,6 +73,7 @@ export default function App() {
   } else {
     return (
       <>
+      <div className="page-container">
         <div className={(isLoaded && results) ? background : undefined}>
           <img className="logo" src={logo} alt="MLH Prep Logo"></img>
           <h2>Enter a city below 👇</h2>
@@ -85,6 +86,7 @@ export default function App() {
           <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} />
           <Footer />
         </div>
+      </div>
       </>
     )
   }
