@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-places-autocomplete": "^7.3.0",
+    "weather-icons-react": "^1.2.0"
   }
 }
