@@ -81,10 +81,6 @@ export default function Map({ setIsLoaded, setResults, setError, coords, setCoor
                         <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked={mapStyle === "streets-v11"} onChange={() => setMapStyle("streets-v11")}/>
                         <label htmlFor="streets-v11">Streets</label>
                     </div>
-                    <div className="map-radio-btn">
-                        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" checked={mapStyle === "outdoors-v11"} onChange={() => setMapStyle("outdoors-v11")}/>
-                        <label htmlFor="outdoors-v11">Outdoors</label>
-                    </div>
                 </details>
             </div>
         </>
