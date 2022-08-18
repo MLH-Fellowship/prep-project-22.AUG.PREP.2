@@ -13,7 +13,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
-  const [coords, setCoords] = useState(null)
+  const [coords, setCoords] = useState({lng: -70.9, lat: 42.35, center: false})
   const [results, setResults] = useState(null);
   const [background, setBackground] = useState("")
 
@@ -78,20 +78,20 @@ export default function App() {
   } else {
     return (
       <>
-      <div className="page-container">
-        <div className={(isLoaded && results) ? background : undefined}>
-          <img className="logo" src={logo} alt="MLH Prep Logo"></img>
-          <h2>Enter a city below 👇</h2>
-          <SearchComponent city={city} changeCity={setCity} />
-          <GetMyLocationButton getUserLocation={getUserLocation} />
-          <div className="card-container">
-            <ResultsComponent isLoaded={isLoaded} results={results}/>
-            {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
-          </div>
-          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} setBackground={setBackground} coords={coords} />
-          <Footer />
+        <div className="page-container">
+          <div className={(isLoaded && results) ? background : undefined}>
+            <img className="logo" src={logo} alt="MLH Prep Logo"></img>
+            <h2>Enter a city below 👇</h2>
+            <SearchComponent city={city} changeCity={setCity} />
+            <GetMyLocationButton getUserLocation={getUserLocation} />
+            <div className="card-container">
+              <ResultsComponent isLoaded={isLoaded} results={results}/>
+              {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
+            </div>
+            <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} setCoords={setCoords} setBackground={setBackground}/>
+            <Footer />
+          </div>        
         </div>
-      </div>
       </>
     )
   }
