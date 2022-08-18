@@ -57,7 +57,7 @@ export default function App() {
             if (result['cod'] !== 200) {
               setIsLoaded(false)
             } else {
-              setCoords({lat: result.coord.lat, lon: result.coord.lon})
+              setCoords({lat: result.coord.lat, lng: result.coord.lon})
               setIsLoaded(true);
               setResults(result);
               setBackground(result.weather[0].main)
