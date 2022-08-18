@@ -5,9 +5,10 @@
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 5;
 }
 
-#modal {
+#modal-container {
   border-radius: 2rem;
   background-color: rgb(26, 26, 26);
   position: absolute;
@@ -17,9 +18,24 @@
   left: 0;
   right: 0;
   height: 75%;
-  overflow: scroll;
+  overflow: hidden;
+  width: 55vw;
+  padding: 2rem;
+
+}
+
+#modal {
+  border-radius: 2rem;
+  background-color: rgb(26, 26, 26);
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 80%;
+  overflow: auto;
   width: 50vw;
-  padding: 2rem 4rem;
+  padding: 0 2rem 2rem 2rem;
 }
 
 .flex-container {
@@ -68,7 +84,10 @@ button {
 
 @media screen and (max-width: 800px) {
   #modal {
-    padding: 2rem 2rem;
+    padding: 0 2rem 2rem 2rem;
+    width: 70vw;
+  }
+  #modal-container {
     width: 70vw;
   }
   .feature {

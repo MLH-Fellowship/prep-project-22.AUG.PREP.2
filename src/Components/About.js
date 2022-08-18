@@ -8,22 +8,24 @@ export default function About({ visible, toggleVisibility }) {
 
   return (
     <div id="modal-bg" style={showWhenVisible}>
-      <div id="modal">
-        <h3>Developing Hack2gether Weather</h3>
-        <div className="flex-container">
-          {ProjectFeatures.map(item =>
-            <div className="feature">
-              <div className="feature-image-container">
-                <img src={item.image} alt={item.alt} />
+      <div id="modal-container">
+        <div id="modal">
+          <h3>Developing Hack2gether Weather</h3>
+          <div className="flex-container">
+            {ProjectFeatures.map(item =>
+              <div className="feature">
+                <div className="feature-image-container">
+                  <img src={item.image} alt={item.alt} />
+                </div>
+                <div className="feature-info">
+                  <h4>{item.feature}</h4>
+                  <div>{item.desc}</div>
+                </div>
               </div>
-              <div className="feature-info">
-                <h4>{item.feature}</h4>
-                <div>{item.desc}</div>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
+          <button onClick={toggleVisibility}>Close</button>
         </div>
-        <button onClick={toggleVisibility}>Close</button>
       </div>
     </div>
 
