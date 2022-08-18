@@ -7,6 +7,7 @@ import SearchComponent from "./Search";
 import RequiredItems from "./RequiredItems";
 import GetMyLocationButton from "./GetMyLocationButton";
 import Map from "./Map";
+import Footer from "./Footer/Footer";
 
 export default function App() {
   const [error, setError] = useState(null);
@@ -77,17 +78,20 @@ export default function App() {
   } else {
     return (
       <>
+      <div className="page-container">
         <div className={(isLoaded && results) ? background : undefined}>
           <img className="logo" src={logo} alt="MLH Prep Logo"></img>
           <h2>Enter a city below 👇</h2>
           <SearchComponent city={city} changeCity={setCity} />
-          <GetMyLocationButton getUserLocation={getUserLocation}/>
+          <GetMyLocationButton getUserLocation={getUserLocation} />
           <div className="card-container">
             <ResultsComponent isLoaded={isLoaded} results={results}/>
             {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           </div>
-          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords}/>
+          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} />
+          <Footer />
         </div>
+      </div>
       </>
     )
   }
