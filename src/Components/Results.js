@@ -10,13 +10,19 @@ import {
   WiDust,
   WiSandstorm,
   WiThunderstorm,
-  WiSmoke
+  WiSmoke,
+
+  WiHumidity,
+  WiBarometer,
+  WiStrongWind,
+  WiSunrise,
+  WiSunset,
 } from "weather-icons-react"
 
 export default function ResultsComponent({ isLoaded, results }) {
 
   // Weather card
-  const getItems = (x, size) => {
+  const getWeatherIcon = (x, size) => {
     switch (x) {
       case 'Rain':
         return <WiRain size={size} color="#00ffff" />
@@ -49,24 +55,32 @@ export default function ResultsComponent({ isLoaded, results }) {
     <div className="Results">
       {!isLoaded && <h2>Loading...</h2>}
       {isLoaded && results && <>
+      <div className="main-info">
         <div className="place">
           <span className="city-name">{results.name}</span>
           <span className="country-name">, {results.sys.country}</span>
         </div>
 
         <div className="weather-card">
-          {getItems(results.weather[0].main, 80)}
+          {getWeatherIcon(results.weather[0].main, 80)}
           <span className="degree">
-            {parseInt(results.main.feels_like)}
+            {parseInt(results.main.feels_like)} °C
           </span>
-          <span className="circle">°</span>
-          <span className="celsius">C</span>
         </div>
 
         <div className="feels-like">
           <span>Feels Like {results.main.feels_like} </span>
-          <span className="circle">°</span>
+          <span className="circle">°C</span>
         </div>
+      </div>
+      
+      <div className="additional-info">
+        <p><WiHumidity size={40} color="#ffc34d"  /> Humidity: {results.main.humidity}%</p>
+        <p><WiBarometer size={40} color="#ffc34d" /> Pressure: {results.main.pressure} hPa</p>
+        <p><WiStrongWind size={40} color="#ffc34d" /> Windspeed: {results.wind.speed} m/s</p>
+        <p><WiSunrise size={40} color="#ffc34d" /> Sunrise: {new Date(results.sys.sunrise * 1000).toTimeString().split('GMT')[0]} GMT</p>
+        <p><WiSunset size={40} color="#ffc34d" /> Sunset: {new Date(results.sys.sunset * 1000).toTimeString().split('GMT')[0]} GMT</p>
+      </div>
       </>}
     </div>
   )
