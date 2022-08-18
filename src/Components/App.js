@@ -83,7 +83,7 @@ export default function App() {
             <ResultsComponent isLoaded={isLoaded} results={results}/>
             {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           </div>
-          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} />
+          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} setBackground={setBackground} coords={coords} />
           <Footer />
         </div>
       </div>
