@@ -3,7 +3,7 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 import "../assets/styles/Map.css"
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm95Z2JldiIsImEiOiJjbDFjYzF2ajUwMHgzM2NwcXBzdWVxM3ZvIn0.2k8N-UN2Y7ZdT5vwml9QAw';
 
-export default function Map({ setIsLoaded, setResults, setError, coords, setCoords }) {
+export default function Map({ setIsLoaded, setResults, setError, setBackground, coords, setCoords }) {
     const lng = coords.lng, lat = coords.lat;
     const mapContainer = useRef(null);
     const map = useRef(null);
@@ -31,6 +31,7 @@ export default function Map({ setIsLoaded, setResults, setError, coords, setCoor
                         setCoords({lng: e.lngLat.lng, lat: e.lngLat.lat})
                         setIsLoaded(true);
                         setResults(result);
+                        setBackground(result.weather[0].main)
                     }
                 },
                 (error) => {

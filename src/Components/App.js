@@ -48,24 +48,29 @@ export default function App() {
 
   // Fetch data based on user input
   useEffect(() => { // weather
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          if (result['cod'] !== 200) {
-            setIsLoaded(false)
-          } else {
-            setCoords({lat: result.coord.lat, lng: result.coord.lon, center: true})
+    const fetchData = setTimeout(() => { // fetch data after user stops typing 
+      console.log("fetch")
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if (result['cod'] !== 200) {
+              setIsLoaded(false)
+            } else {
+              setCoords({lat: result.coord.lat, lon: result.coord.lon})
+              setIsLoaded(true);
+              setResults(result);
+              setBackground(result.weather[0].main)
+            }
+          },
+          (error) => {
             setIsLoaded(true);
-            setResults(result);
-            setBackground(result.weather[0].main)
+            setError(error);
           }
-        },
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        }
-      )
+        )
+    }, 1000) // 1 second therhold 
+
+      return () => clearTimeout(fetchData)
   }, [city])
 
   if (error) {
@@ -79,11 +84,11 @@ export default function App() {
             <h2>Enter a city below 👇</h2>
             <SearchComponent city={city} changeCity={setCity} />
             <GetMyLocationButton getUserLocation={getUserLocation} />
-            <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} setCoords={setCoords} />
             <div className="card-container">
               <ResultsComponent isLoaded={isLoaded} results={results}/>
               {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
             </div>
+            <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} setCoords={setCoords} setBackground={setBackground}/>
             <Footer />
           </div>        
         </div>
