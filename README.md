@@ -1,38 +1,38 @@
-# MLH Prep Project
+# Hack2gether Weather
 
-Over the next 2 weeks, you'll be building a React App that works with various APIs (Application Programming Interfaces) that talk to different data sources to do cool stuff.
+Hack2gether Weather is an app built using React which displays the weather of any location in the world.
 
-We're using the [OpenWeather API](https://openweathermap.org/current) to get weather data on different cities. Your challenge over the next 2 weeks is to build out this website and add even more functionality to it. At the moment, it displays basic information about a location when you type it in. Check out [Issues](/issues) for some more ideas!
+This was made possible by the efforts of everyone in Prep Fellowship pod of August 2022 batch, ["Hack2gether"](https://prep-22-aug-prep-2-portfolio.netlify.app)
 
-You'll need to get your own API Key from their website (for free) and add it as an environment variable in a `.env` file. We have a template available as `example.env`.
+## Tech Used
 
-You'll be using React initially to build this. If you're new to React, check out the [website](https://reactjs.org) for some information on getting started!
+- [React](https://reactjs.org)
+- [OpenWeather API](https://openweathermap.org/current)
+- [MapBox](https://docs.mapbox.com/api/overview/)
+- Netlify
+- GitHub Actions for automated deployment and image optimisation
 
-## Github Pages Deployment
-[live link](https://mlh-fellowship.github.io/prep-project-22.AUG.PREP.2/)
+## Live website
 
-----
+You can try out the site either at [Netlify](https://prep-22-aug-prep-2-project.netlify.app/) or [GitHub Pages](https://mlh-fellowship.github.io/prep-project-22.AUG.PREP.2/)
+
+## Features
+
+- Detect current user's location using the JavaScript [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+- Autocomplete location name when location is typed in the search bar
+- Interactive map that allows you to set the location anywhere in the world
+- Get weather condtions like temperature, humidity, wind speed, times for sunrise and sunset, and more
+- Suggestions for clothing according to the weather
+- Automated deployment using GitHub actions
+- Image optimisation using [Calibre image-actions](https://github.com/calibreapp/image-actions)
+
 ## Installation & Development
 
-### 1- Prerequisites
-To run a react project, you need to have the following prerequisite:
-- [Node.js & NPM (Node Package Manager)](https://nodejs.org/en/download/).
-
-> To test if node is installed, run `node -v` in your terminal.
-
-> To test if npm is installed, run `npm -v` in your terminal.
-### 2- Install
-
-First you'll need to install the dependencies of the project.
-- Run `npm install` in your terminal in the root of the project.
-
-### 3- Development
-
-Then you'll need to start the development server. This will open a new tab in your browser and reload when you make a change.
-- Run `npm start` in your terminal in the root of the project.
-
-### 4- Deployment
-
-To build the project for production, run `npm run build`.
+1. Fork and clone the repository
+2. Ensure Node and NPM are installed on your system with `node -v` and `npm -v`
+3. `cd` into the project folder
+4. Install the dependencies with `npm install`
+5. Start the development server with `npm start`
+6. Build the project for production with `npm run build`
 
 More documentation on the scripts can be found [here](https://create-react-app.dev/docs/available-scripts).
