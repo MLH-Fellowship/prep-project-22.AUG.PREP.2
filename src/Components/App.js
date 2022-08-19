@@ -89,7 +89,7 @@ export default function App() {
             {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
           </div>
           <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} />
-          <button onClick={toggleVisibility}>About this project</button>
+          <button id="btn-about" onClick={toggleVisibility}>About this project</button>
           <About
             visible={visible}
             toggleVisibility={toggleVisibility}

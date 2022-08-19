@@ -68,6 +68,10 @@
   text-align: left;
 }
 
+#btn-close {
+  margin-top: 2rem;
+}
+
 button {
   display: inline-block;
   background: #4674b5;

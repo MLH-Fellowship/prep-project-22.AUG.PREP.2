@@ -10,7 +10,7 @@ export default function About({ visible, toggleVisibility }) {
     <div id="modal-bg" style={showWhenVisible}>
       <div id="modal-container">
         <div id="modal">
-          <h3>Developing Hack2gether Weather</h3>
+          <h2>Developing Hack2gether Weather</h2>
           <div className="flex-container">
             {ProjectFeatures.map(item =>
               <div className="feature">
@@ -24,7 +24,7 @@ export default function About({ visible, toggleVisibility }) {
               </div>
             )}
           </div>
-          <button onClick={toggleVisibility}>Close</button>
+          <button id="btn-close" onClick={toggleVisibility}>Close</button>
         </div>
       </div>
     </div>
