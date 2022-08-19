@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import '../assets/styles/App.css';
-import logo from '../mlh-prep.png';
+import logo from '../assets/img/mlh-prep.png';
 import ErrorComponent from "./Error";
 import ResultsComponent from "./Results";
 import SearchComponent from "./Search";
@@ -8,7 +8,7 @@ import RequiredItems from "./RequiredItems";
 import GetMyLocationButton from "./GetMyLocationButton";
 import Map from "./Map";
 import About from "./About";
-import Footer from "./Footer/Footer";
+import Footer from "./Footer";
 
 export default function App() {
   const [error, setError] = useState(null);
