@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import '../assets/styles/App.css';
-import logo from '../mlh-prep.png';
+import logo from '../assets/img/mlh-prep.png';
 import ErrorComponent from "./Error";
 import ResultsComponent from "./Results";
 import SearchComponent from "./Search";
 import RequiredItems from "./RequiredItems";
-import GetMyLocationButton from "./GetMyLocationButton";
 import Map from "./Map";
 import About from "./About";
-import Footer from "./Footer/Footer";
+import Footer from "./Footer";
 
 export default function App() {
   const [error, setError] = useState(null);
@@ -88,9 +87,8 @@ export default function App() {
         <div className="page-container">
           <div className={(isLoaded && results) ? background : undefined}>
             <img className="logo" src={logo} alt="MLH Prep Logo"></img>
-            <h2>Enter a city below 👇</h2>
-            <SearchComponent city={city} changeCity={setCity} />
-            <GetMyLocationButton getUserLocation={getUserLocation} />
+            <h2 className="app-header">Enter a city below 👇</h2>
+            <SearchComponent city={city} changeCity={setCity} getUserLocation={getUserLocation} />
             <div className="card-container">
               <ResultsComponent isLoaded={isLoaded} results={results} />
               {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
