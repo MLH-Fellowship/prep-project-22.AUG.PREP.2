@@ -18,6 +18,7 @@ import {
   WiSunrise,
   WiSunset,
 } from "weather-icons-react"
+import { getFaviconEl, changeFaviconEl } from "./FaviconUtilities"
 
 export default function ResultsComponent({ isLoaded, results }) {
 
@@ -25,30 +26,43 @@ export default function ResultsComponent({ isLoaded, results }) {
   const getWeatherIcon = (x, size) => {
     switch (x) {
       case 'Rain':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiRain size={size} color="#00ffff" />
       case 'Snow':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiDaySnow size={size} color="#b3ffff" />
       case 'Clear':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiDaySunny size={size} color="#ffc34d" />
       case 'Clouds':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiCloudy size={size} color="#66ccff" />
       case 'Tornado':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiTornado size={size} color="#999966" />
       case 'Thunderstorm':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiThunderstorm size={size} color="#3973ac" />
       case 'Dust':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiDust size={size} color="#adad85" />
       case 'Sand':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiSandstorm size={size} color="#c9ba9c" />
       case 'Fog':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiDayFog size={size} color="#acd2cc" />
       case 'Haze':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiDayHaze size={size} color="#999966" />
       case 'Smoke':
+        changeFaviconEl(`weather/${x}.png`);
         return <WiSmoke size={size} color="#acac53" />
       default:
+        changeFaviconEl("favicon.ico");
         return undefined
     }
+  
   }
 
   return (
