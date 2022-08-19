@@ -5,15 +5,17 @@
 
 .items-card {
   max-width: 30%;
-  background-color: white;
-  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 0 10px;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  display: grid;
+  place-items: center;
 }
 
 .items-card img {
   max-width: 70%;
-  margin: 25px 5px 5px 5px;
 }
 
 @media screen and (max-width: 800px) {
