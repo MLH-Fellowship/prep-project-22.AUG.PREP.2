@@ -5,10 +5,18 @@ import PlacesAutocomplete, {
   } from "react-places-autocomplete";
 import "../assets/styles/Search.css"
   let suggestionElementContainer = {
-    maxWidth: "800px",
+    maxWidth: "355px",
     margin: "0 auto",
     color: "#2b2929",
-    marginTop: "5px"
+    marginTop: "15px",
+    marginBottom: "5px",
+    fontSize: "1rem",
+    fontWeight: "bold",
+    textAlign: "start",
+    borderRadius: "5px",
+    boxShadow: "0px 0px 10px #2b2929",
+    cursor: "pointer",
+    transition: "all 0.3s ease-in-out",
   }
 
 export default function SearchComponent({city, changeCity}) {

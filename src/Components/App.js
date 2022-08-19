@@ -39,16 +39,17 @@ export default function App() {
     // Use coordinates to fetch weather
     geolocateUser.then(res => {
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${res.lat}&lon=${res.lon}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
-        .then(res => res.json())
-        .then((result) => {
-          setIsLoaded(true)
-          setCity(result.name)
-          setResults(result)
-        },
-          (error) => {
-            setIsLoaded(true)
-            setError(error)
-          })
+      .then(res => res.json())
+      .then((result) => {
+        setCoords({lat: result.coord.lat, lng: result.coord.lon, center: true})
+        setIsLoaded(true)
+        setCity(result.name)
+        setResults(result)
+      },
+      (error) => {
+        setIsLoaded(true)
+        setError(error)
+      })
     })
   }
 
@@ -63,7 +64,7 @@ export default function App() {
             if (result['cod'] !== 200) {
               setIsLoaded(false)
             } else {
-              setCoords({ lat: result.coord.lat, lng: result.coord.lon })
+              setCoords({lat: result.coord.lat, lng: result.coord.lon, center: true})
               setIsLoaded(true);
               setResults(result);
               setBackground(result.weather[0].main)

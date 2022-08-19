@@ -5,6 +5,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicm95Z2JldiIsImEiOiJjbDFjYzF2ajUwMHgzM2NwcXBzd
 
 export default function Map({ setIsLoaded, setResults, setError, setBackground, coords, setCoords }) {
     const lng = coords.lng, lat = coords.lat;
+    console.log(coords);
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [mapStyle, setMapStyle] = useState("streets-v11");
