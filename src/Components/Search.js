@@ -7,7 +7,6 @@ import PlacesAutocomplete, {
 import "../assets/styles/Search.css"
 
 export default function SearchComponent({ city, changeCity, getUserLocation }) {
-    //const [city, setCity] = React.useState("");
     const [coordinates, setCoordinates] = React.useState({
       lat: null,
       lng: null
@@ -45,10 +44,10 @@ export default function SearchComponent({ city, changeCity, getUserLocation }) {
                     );
                   })}
                 </div>
+                <GetMyLocationButton getUserLocation={getUserLocation} />
               </div>
             )}
           </PlacesAutocomplete>
-          <GetMyLocationButton getUserLocation={getUserLocation} />
     </div>
     )
 }

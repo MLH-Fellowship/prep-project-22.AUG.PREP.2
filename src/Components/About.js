@@ -1,6 +1,6 @@
 import '../assets/styles/About.css';
 import ProjectFeatures from '../assets/json/projectFeatures.json'
-import cap from '../assets/img/cap.png'
+
 export default function About({ visible, toggleVisibility }) {
 
   // Toggle CSS state depending on state
