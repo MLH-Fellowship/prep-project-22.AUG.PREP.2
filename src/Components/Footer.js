@@ -1,7 +1,7 @@
 import "../assets/styles/footer.css"
 import logo from '../assets/img/mlh-prep.png';
 
-export default function Footer({}) {
+export default function Footer() {
   return (
     <>
       <div className="footer">

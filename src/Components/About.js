@@ -12,8 +12,8 @@ export default function About({ visible, toggleVisibility }) {
         <div id="modal">
           <h2>Developing Hack2gether Weather</h2>
           <div className="flex-container">
-            {ProjectFeatures.map(item =>
-              <div className="feature">
+            {ProjectFeatures.map((item, idx) =>
+              <div key={idx} className="feature">
                 <div className="feature-image-container">
                   <img src={item.image} alt={item.alt} />
                 </div>
