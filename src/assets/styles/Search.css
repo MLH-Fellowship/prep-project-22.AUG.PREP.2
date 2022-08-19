@@ -28,3 +28,18 @@
 .get-user-loc-btn:active {
   transform: scale(0.98);
 }
+
+.suggestionElementContainer {
+  max-width: 355px;
+  margin: 0 auto;
+  color: #2b2929;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: start;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #2b2929;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}

@@ -6,21 +6,6 @@ import PlacesAutocomplete, {
   } from "react-places-autocomplete";
 import "../assets/styles/Search.css"
 
-let suggestionElementContainer = {
-  maxWidth: "355px",
-  margin: "0 auto",
-  color: "#2b2929",
-  marginTop: "15px",
-  marginBottom: "5px",
-  fontSize: "1rem",
-  fontWeight: "bold",
-  textAlign: "start",
-  borderRadius: "5px",
-  boxShadow: "0px 0px 10px #2b2929",
-  cursor: "pointer",
-  transition: "all 0.3s ease-in-out",
-}
-
 export default function SearchComponent({ city, changeCity, getUserLocation }) {
     //const [city, setCity] = React.useState("");
     const [coordinates, setCoordinates] = React.useState({
@@ -36,34 +21,34 @@ export default function SearchComponent({ city, changeCity, getUserLocation }) {
       
     return (
         <div>
-      <PlacesAutocomplete
-        value={city}
-        onChange={changeCity}
-        onSelect={handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input className="search-input" {...getInputProps({ placeholder: "Type city" })} />
+          <PlacesAutocomplete
+            value={city}
+            onChange={changeCity}
+            onSelect={handleSelect}
+          >
+            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+              <div>
+                <input className="search-input" {...getInputProps({ placeholder: "Type city" })} />
 
-            <div style={suggestionElementContainer}>
-              {loading ? <div>...loading</div> : null}
+                <div className="suggestionElementContainer" >
+                  {loading ? <div>...loading</div> : null}
 
-              {suggestions.map(suggestion => {
-                const style = {
-                  backgroundColor: suggestion.active ? "#86c9e3" : "#fff"
-                }
+                  {suggestions.map(suggestion => {
+                    const style = {
+                      backgroundColor: suggestion.active ? "#86c9e3" : "#fff"
+                    }
 
-                return (
-                  <div {...getSuggestionItemProps(suggestion, { style })}>
-                    {suggestion.description}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
-      <GetMyLocationButton getUserLocation={getUserLocation} />
+                    return (
+                      <div {...getSuggestionItemProps(suggestion, { style })}>
+                        {suggestion.description}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </PlacesAutocomplete>
+          <GetMyLocationButton getUserLocation={getUserLocation} />
     </div>
     )
 }
