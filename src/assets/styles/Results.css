@@ -5,52 +5,57 @@
   color: black;
   text-align: left;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
 }
 
-.Results .place {
+.Results .main-info .place {
   display: flex;
   padding-left: 26px;
 }
 
-.Results .city-name {
+.Results .main-info .city-name {
   font-size: 35px;
   font-weight: bold;
   padding-top: 30px;
 }
 
-.Results .country-name {
+.Results .main-info .country-name {
   font-size: 25px;
   padding-top: 42px;
 }
 
-.Results .weather-card {
+.Results .main-info .weather-card {
   padding-top: 30px;
-  padding-left: 30px;
+  padding-left: 20px;
   display: flex;
+  align-items: center;
 }
 
-.Results .weather-card .degree {
-  font-size: 50px;
+.Results .main-info .weather-card .degree {
+  font-size: 40px;
   font-weight: bold;
   padding-left: 10px;
-  padding-top: 5px;
 }
 
-.Results .weather-card .circle {
-  font-size: 35px;
-  font-weight: normal;
-  padding-top: 10px;
-}
-
-.Results .weather-card .celsius {
-  font-size: 28px;
-  font-weight: normal;
-  padding-top: 25px;
-}
-
-.Results .feels-like {
+.Results .main-info .feels-like {
   font-size: 18px;
   padding-left: 30px;
   padding-top: 10px;
   padding-bottom: 30px;
+}
+
+.Results .additional-info p {
+  display: flex;
+  align-items: center;
+
+}
+
+@media screen and (max-width: 800px) {
+  .Results{
+    flex-direction: column;
+  }
 }

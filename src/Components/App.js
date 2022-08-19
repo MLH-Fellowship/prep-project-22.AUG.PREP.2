@@ -14,7 +14,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState("New York City")
-  const [coords, setCoords] = useState(null)
+  const [coords, setCoords] = useState({ lng: -70.9, lat: 42.35, center: false })
   const [results, setResults] = useState(null);
   const [background, setBackground] = useState("")
   const [visible, setVisible] = useState(false);
@@ -54,24 +54,29 @@ export default function App() {
 
   // Fetch data based on user input
   useEffect(() => { // weather
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          if (result['cod'] !== 200) {
-            setIsLoaded(false)
-          } else {
-            setCoords({ lat: result.coord.lat, lon: result.coord.lon })
-            setBackground(result.weather[0].main)
-            setResults(result);
+    const fetchData = setTimeout(() => { // fetch data after user stops typing 
+      console.log("fetch")
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if (result['cod'] !== 200) {
+              setIsLoaded(false)
+            } else {
+              setCoords({ lat: result.coord.lat, lng: result.coord.lon })
+              setIsLoaded(true);
+              setResults(result);
+              setBackground(result.weather[0].main)
+            }
+          },
+          (error) => {
             setIsLoaded(true);
+            setError(error);
           }
-        },
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        }
-      )
+        )
+    }, 1000) // 1 second therhold 
+
+    return () => clearTimeout(fetchData)
   }, [city])
 
   if (error) {
@@ -79,22 +84,24 @@ export default function App() {
   } else {
     return (
       <>
-        <div className={(isLoaded && results) ? background : undefined}>
-          <img className="logo" src={logo} alt="MLH Prep Logo"></img>
-          <h2>Enter a city below 👇</h2>
-          <SearchComponent city={city} changeCity={setCity} />
-          <GetMyLocationButton getUserLocation={getUserLocation} />
-          <div className="card-container">
-            <ResultsComponent isLoaded={isLoaded} results={results} />
-            {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
+        <div className="page-container">
+          <div className={(isLoaded && results) ? background : undefined}>
+            <img className="logo" src={logo} alt="MLH Prep Logo"></img>
+            <h2>Enter a city below 👇</h2>
+            <SearchComponent city={city} changeCity={setCity} />
+            <GetMyLocationButton getUserLocation={getUserLocation} />
+            <div className="card-container">
+              <ResultsComponent isLoaded={isLoaded} results={results} />
+              {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
+            </div>
+            <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} setCoords={setCoords} setBackground={setBackground} />
+            <button id="btn-about" onClick={toggleVisibility}>About this project</button>
+            <About
+              visible={visible}
+              toggleVisibility={toggleVisibility}
+            />
+            <Footer />
           </div>
-          <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} />
-          <button id="btn-about" onClick={toggleVisibility}>About this project</button>
-          <About
-            visible={visible}
-            toggleVisibility={toggleVisibility}
-          />
-          <Footer />
         </div>
       </>
     )
