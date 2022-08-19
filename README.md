@@ -4,6 +4,17 @@ Hack2gether Weather is an app built using React which displays the weather of an
 
 This was made possible by the efforts of everyone in Prep Fellowship pod of August 2022 batch, ["Hack2gether"](https://prep-22-aug-prep-2-portfolio.netlify.app)
 
+## Folder Structure
+    └───public
+        ├───images
+        ├───weather
+        ├───index.html
+    └───scripts
+    └───src
+        ├───assets
+        ├───components
+        ├───hooks
+
 ## Tech Used
 
 - [React](https://reactjs.org)
