@@ -1,14 +1,20 @@
-.items-container {
+.items-card-container {
   width: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.items-container {
   display: flex;
+  width: 100%;
 }
 
 .items-card {
-  max-width: 30%;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 30%;
   margin: 0 10px;
   border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 10px;
 
   display: grid;
   place-items: center;
@@ -25,7 +31,7 @@
   }
 
   .Results,
-  .items-container {
+  .items-card-container {
     width: 100%;
   }
 }

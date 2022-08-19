@@ -47,17 +47,20 @@ const RequiredItems = ({ weatherKind }) => {
     }
 
     return (
-        <div className='items-container'>
-            {
-                getItems(weatherKind) !== undefined && 
-                getItems(weatherKind).map((ele, index) => { 
-                    return (
-                        <div key={index} className="items-card">
-                            <img src={ele} alt="required item" />
-                        </div>
-                    )
-                })
-            }
+        <div className="items-card-container">
+            <h2>Items to Bring</h2>
+            <div className='items-container'>
+                {
+                    getItems(weatherKind) !== undefined && 
+                    getItems(weatherKind).map((ele, index) => { 
+                        return (
+                                <div key={index} className="items-card">
+                                    <img src={ele} alt="required item" />
+                                </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
