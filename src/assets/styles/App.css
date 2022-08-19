@@ -25,6 +25,10 @@ body {
   padding: 20px 0px;
 }
 
+#btn-about {
+  margin-top: 2rem;
+}
+
 /* Background Images */
 .Mist,
 .Rain,
