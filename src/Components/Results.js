@@ -21,7 +21,7 @@ import {
 import { getFaviconEl, changeFaviconEl } from "./FaviconUtilities"
 
 
-export default function ResultsComponent({ isLoaded, results }) {
+export default function ResultsComponent({ isLoaded, isFound, results}) {
   // Weather card
   const getWeatherIcon = (x, size) => {
     switch (x) {
@@ -69,7 +69,8 @@ export default function ResultsComponent({ isLoaded, results }) {
   return (
     <div className="Results">
       {!isLoaded && <h2>Loading...</h2>}
-      {isLoaded && results && (
+      {!isFound && <h2>Not found</h2>}
+      {isLoaded && results && isFound && (
         <div className="weather-card">
           <div className="main-info">
             <p className="main-info__location">

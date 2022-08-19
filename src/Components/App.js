@@ -12,6 +12,7 @@ import Footer from "./Footer";
 export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isFound, setIsFound] = useState(false);
   const [city, setCity] = useState("New York City")
   const [coords, setCoords] = useState({ lng: -70.9, lat: 42.35, center: false })
   const [results, setResults] = useState(null);
@@ -42,6 +43,7 @@ export default function App() {
         .then((result) => {
           setCoords({ lat: result.coord.lat, lng: result.coord.lon, center: true })
           setIsLoaded(true)
+          setIsFound(true)
           setCity(result.name)
           setResults(result)
         },
@@ -61,16 +63,26 @@ export default function App() {
         .then(
           (result) => {
             if (result['cod'] !== 200) {
-              setIsLoaded(false)
+              if(result['cod'] === "404")
+              {
+                
+                setIsFound(false);
+              }
+              else
+              {
+                setIsLoaded(false)
+              }
             } else {
               setCoords({ lat: result.coord.lat, lng: result.coord.lon, center: true })
               setIsLoaded(true);
+              setIsFound(true);
               setResults(result);
               setBackground(result.weather[0].main)
             }
           },
           (error) => {
             setIsLoaded(true);
+            setIsFound(true);
             setError(error);
           }
         )
@@ -90,10 +102,10 @@ export default function App() {
             <h2 className="app-header">Enter a city below 👇</h2>
             <SearchComponent city={city} changeCity={setCity} getUserLocation={getUserLocation} />
             <div className="card-container">
-              <ResultsComponent isLoaded={isLoaded} results={results} />
-              {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
+              <ResultsComponent isLoaded={isLoaded}  isFound={isFound} results={results} />
+              {isLoaded && results && isFound && <RequiredItems weatherKind={results.weather[0].main} />}
             </div>
-            <Map setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} setCoords={setCoords} setBackground={setBackground} />
+            <Map setIsFound={setIsFound} setIsLoaded={setIsLoaded} setResults={setResults} setError={setError} coords={coords} setCoords={setCoords} setBackground={setBackground} />
             <button id="btn-about" onClick={toggleVisibility}>About this project</button>
             <About
               visible={visible}
