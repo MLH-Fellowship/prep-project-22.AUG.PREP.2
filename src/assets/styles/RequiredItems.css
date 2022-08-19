@@ -11,11 +11,9 @@
 }
 
 .items-card {
-  max-width: 30%;
-  /* background-color: rgba(0, 0, 0, 0.7); */
+  width: 30%;
   margin: 0 10px;
   border-radius: 10px;
-  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
   padding: 10px;
 
   display: grid;
@@ -27,13 +25,8 @@
 }
 
 @media screen and (max-width: 800px) {
-  .card-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .Results,
-  .items-container {
+  .items-card-container {
     width: 100%;
   }
 }
