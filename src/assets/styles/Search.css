@@ -1,24 +1,37 @@
+.search-in-group {
+  width: 300px;
+  position: relative;
+  margin: 0px auto;
+}
+
 .search-input {
-  padding: 10px;
-  border-radius: 4px;
-  border: 10px;
-  width: 330px;
+  padding: 10px 5px;
+  border-radius: 5px;
+  border: 10px; 
+  width: 300px;
   background-color: #fff;
-  box-shadow: 5px 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-size: 16px;
 }
 
 .get-user-loc-btn {
-  display: inline-block;
+  position: absolute;
+  overflow: visible;
+  top: 2px;
+  right: -8px;
+  z-index: 2;
   background: #4674b5;
   color: #fff;
-  border: none;
-  padding: 8px 16px;
-  margin: 5px;
-  border-radius: 5px;
+  border: 10px;
+  border-radius: 3px;
   cursor: pointer;
-  text-decoration: none;
   font-size: 16px;
-  font-family: inherit;
+  padding: 2px 5px;
+}
+
+.get-usr-loc-icon {
+  padding: 1px 0px 0px;
+  height: 24px;
 }
 
 .get-user-loc-btn:focus {
@@ -27,4 +40,46 @@
 
 .get-user-loc-btn:active {
   transform: scale(0.98);
+}
+
+.suggestionElementContainer {
+  max-width: 355px;
+  margin: 50 auto;
+  color: #2b2929;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: start;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #2b2929;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted #4674b5;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(70, 116, 181, 0.7);
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 2px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 120%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
