@@ -24,6 +24,7 @@ export default function About({ visible, toggleVisibility }) {
               </div>
             )}
           </div>
+          <p><a href="https://prep-22-aug-prep-2-portfolio.netlify.app/">Check out our Pod Portfolio project!</a></p>
           <button id="btn-close" onClick={toggleVisibility}>Close</button>
         </div>
       </div>
