@@ -30,22 +30,21 @@ export default function SearchComponent({ city, changeCity, getUserLocation }) {
                 <div className="search-in-group" >
                   <input className="search-input" {...getInputProps({ placeholder: "Type city" })} />
                   <GetMyLocationButton getUserLocation={getUserLocation} />
-                </div>
+                  <div className="suggestionElementContainer" >
+                    {loading ? <div>...loading</div> : null}
 
-                <div className="suggestionElementContainer" >
-                  {loading ? <div>...loading</div> : null}
+                    {suggestions.map(suggestion => {
+                      const style = {
+                        backgroundColor: suggestion.active ? "#86c9e3" : "#fff"
+                      }
 
-                  {suggestions.map(suggestion => {
-                    const style = {
-                      backgroundColor: suggestion.active ? "#86c9e3" : "#fff"
-                    }
-
-                    return (
-                      <div {...getSuggestionItemProps(suggestion, { style })}>
-                        {suggestion.description}
-                      </div>
-                    );
-                  })}
+                      return (
+                        <div {...getSuggestionItemProps(suggestion, { style })}>
+                          {suggestion.description}
+                        </div>
+                      ); 
+                    })}
+                  </div>
                 </div>
               </div>
             )}
