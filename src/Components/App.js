@@ -87,7 +87,7 @@ export default function App() {
         <div className="page-container">
           <div className={(isLoaded && results) ? background : undefined}>
             <img className="logo" src={logo} alt="MLH Prep Logo"></img>
-            <h2>Enter a city below 👇</h2>
+            <h2 className="app-header">Enter a city below 👇</h2>
             <SearchComponent city={city} changeCity={setCity} getUserLocation={getUserLocation} />
             <div className="card-container">
               <ResultsComponent isLoaded={isLoaded} results={results} />

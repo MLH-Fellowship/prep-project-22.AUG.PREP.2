@@ -4,6 +4,11 @@ body {
   text-align: center;
 }
 
+.app-header {
+  text-shadow: 1px 0px 5px #2b2929;
+  font-weight: bold;
+}
+
 .logo {
   display: block;
   margin-left: auto;
