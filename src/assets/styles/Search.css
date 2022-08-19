@@ -17,16 +17,20 @@
 .get-user-loc-btn {
   position: absolute;
   overflow: visible;
-  top: 0px;
-  right: -10px;
+  top: 2px;
+  right: -8px;
   z-index: 2;
   background: #4674b5;
   color: #fff;
   border: 10px;
-  padding: 10px 5px;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
   font-size: 16px;
+}
+
+.get-usr-loc-icon {
+  margin: auto 0px;
+  width: 90%;
 }
 
 .get-user-loc-btn:focus {
