@@ -25,6 +25,11 @@
 }
 
 @media screen and (max-width: 800px) {
+  .card-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .Results,
   .items-card-container {
     width: 100%;
