@@ -19,6 +19,7 @@
 /* To remove default margin: 1rem for <p> tags */
 .Results .weather-card p {
   margin: 0;
+  color: white;
 }
 
 .Results .weather-card .main-info {
