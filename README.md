@@ -23,6 +23,10 @@ This was made possible by the efforts of everyone in Prep Fellowship pod of Augu
 - Netlify
 - GitHub Actions for automated deployment and image optimisation
 
+Steps for setting up the API key for openweathermap
+To generate an API key for openweathermap, register on openweathermap: https://home.openweathermap.org/api_keys
+Rename example.env to .env and put your API key in between single quotes to the right of the REACT_APP_APIKEY variable
+
 ## Live website
 
 You can try out the site either at [Netlify](https://prep-22-aug-prep-2-project.netlify.app/) or [GitHub Pages](https://mlh-fellowship.github.io/prep-project-22.AUG.PREP.2/)
