@@ -26,11 +26,12 @@
   border-radius: 3px;
   cursor: pointer;
   font-size: 16px;
+  padding: 2px 5px;
 }
 
 .get-usr-loc-icon {
-  margin: auto 0px;
-  width: 90%;
+  /* padding: 1px 0px 0px; */
+  height: 26px;
 }
 
 .get-user-loc-btn:focus {
