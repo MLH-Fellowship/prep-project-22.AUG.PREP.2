@@ -27,7 +27,10 @@ export default function SearchComponent({ city, changeCity, getUserLocation }) {
           >
             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
               <div>
-                <input className="search-input" {...getInputProps({ placeholder: "Type city" })} />
+                <div className="search-in-group" >
+                  <input className="search-input" {...getInputProps({ placeholder: "Type city" })} />
+                  <GetMyLocationButton getUserLocation={getUserLocation} />
+                </div>
 
                 <div className="suggestionElementContainer" >
                   {loading ? <div>...loading</div> : null}
@@ -44,7 +47,6 @@ export default function SearchComponent({ city, changeCity, getUserLocation }) {
                     );
                   })}
                 </div>
-                <GetMyLocationButton getUserLocation={getUserLocation} />
               </div>
             )}
           </PlacesAutocomplete>
