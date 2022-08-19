@@ -5,7 +5,7 @@ import PlacesAutocomplete, {
   } from "react-places-autocomplete";
 import "../assets/styles/Search.css"
   let suggestionElementContainer = {
-    maxWidth: "550px",
+    maxWidth: "355px",
     margin: "0 auto",
     color: "#2b2929",
     marginTop: "15px",
