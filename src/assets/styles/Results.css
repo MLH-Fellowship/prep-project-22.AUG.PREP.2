@@ -53,3 +53,20 @@
   gap: 14px;
   font-size: 18px;
 }
+
+@media screen and (max-width: 800px) {
+  .Results {
+    max-width: 90%;
+  }
+  .Results .weather-card {
+    flex-direction: column;
+  }
+  .Results .weather-card .main-info {
+    font-size: 30px;
+    align-items: center;
+  }
+
+  .Results .weather-card .main-info .main-info__degree {
+    font-size: 28px;
+  }
+}
