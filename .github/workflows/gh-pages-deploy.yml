@@ -38,7 +38,7 @@ jobs:
         cache: 'npm'
 
     - name: Install Dependencies
-      run: npm i
+      run: npm i --force0
 
     - name: Build & Deploy Project
       run: |
