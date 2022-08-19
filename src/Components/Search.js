@@ -1,29 +1,31 @@
 import React from "react";
+import GetMyLocationButton from "./GetMyLocationButton";
 import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
   } from "react-places-autocomplete";
 import "../assets/styles/Search.css"
-  let suggestionElementContainer = {
-    maxWidth: "355px",
-    margin: "0 auto",
-    color: "#2b2929",
-    marginTop: "15px",
-    marginBottom: "5px",
-    fontSize: "1rem",
-    fontWeight: "bold",
-    textAlign: "start",
-    borderRadius: "5px",
-    boxShadow: "0px 0px 10px #2b2929",
-    cursor: "pointer",
-    transition: "all 0.3s ease-in-out",
-  }
 
-export default function SearchComponent({city, changeCity}) {
+let suggestionElementContainer = {
+  maxWidth: "355px",
+  margin: "0 auto",
+  color: "#2b2929",
+  marginTop: "15px",
+  marginBottom: "5px",
+  fontSize: "1rem",
+  fontWeight: "bold",
+  textAlign: "start",
+  borderRadius: "5px",
+  boxShadow: "0px 0px 10px #2b2929",
+  cursor: "pointer",
+  transition: "all 0.3s ease-in-out",
+}
+
+export default function SearchComponent({ city, changeCity, getUserLocation }) {
     //const [city, setCity] = React.useState("");
     const [coordinates, setCoordinates] = React.useState({
-    lat: null,
-    lng: null
+      lat: null,
+      lng: null
     });
     const handleSelect = async value => {
         const results = await geocodeByAddress(value);
@@ -41,11 +43,7 @@ export default function SearchComponent({city, changeCity}) {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            {/* <p>Latitude: {coordinates.lat}</p>
-            <p>Longitude: {coordinates.lng}</p> */}
-
-            <input className="search-input" {...getInputProps({ placeholder: "Type city" })} 
-             />
+            <input className="search-input" {...getInputProps({ placeholder: "Type city" })} />
 
             <div style={suggestionElementContainer}>
               {loading ? <div>...loading</div> : null}
@@ -65,6 +63,7 @@ export default function SearchComponent({city, changeCity}) {
           </div>
         )}
       </PlacesAutocomplete>
+      <GetMyLocationButton getUserLocation={getUserLocation} />
     </div>
     )
 }

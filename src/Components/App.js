@@ -5,7 +5,6 @@ import ErrorComponent from "./Error";
 import ResultsComponent from "./Results";
 import SearchComponent from "./Search";
 import RequiredItems from "./RequiredItems";
-import GetMyLocationButton from "./GetMyLocationButton";
 import Map from "./Map";
 import About from "./About";
 import Footer from "./Footer";
@@ -89,8 +88,7 @@ export default function App() {
           <div className={(isLoaded && results) ? background : undefined}>
             <img className="logo" src={logo} alt="MLH Prep Logo"></img>
             <h2>Enter a city below 👇</h2>
-            <SearchComponent city={city} changeCity={setCity} />
-            <GetMyLocationButton getUserLocation={getUserLocation} />
+            <SearchComponent city={city} changeCity={setCity} getUserLocation={getUserLocation} />
             <div className="card-container">
               <ResultsComponent isLoaded={isLoaded} results={results} />
               {isLoaded && results && <RequiredItems weatherKind={results.weather[0].main} />}
