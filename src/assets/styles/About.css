@@ -1,0 +1,109 @@
+#modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#modal-container {
+  border-radius: 2rem;
+  background-color: rgb(26, 26, 26);
+  position: absolute;
+  top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 75%;
+  overflow: hidden;
+  width: 55vw;
+  padding: 2rem;
+
+}
+
+#modal {
+  border-radius: 2rem;
+  background-color: rgb(26, 26, 26);
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 90%;
+  overflow: auto;
+  width: 50vw;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.feature-image-container {
+  width: 40%;
+  height: 100%;
+}
+
+.feature-image-container img {
+  border-radius: 1rem;
+  width: 100%;
+  object-fit: contain;
+}
+
+.feature-info {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+#btn-close {
+  margin-top: 2rem;
+}
+
+button {
+  display: inline-block;
+  background: #4674b5;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+a {
+  color: white;
+}
+
+@media screen and (max-width: 1200px) {
+  #modal {
+    padding: 0 2rem 2rem 2rem;
+    width: 70vw;
+  }
+  #modal-container {
+    width: 70vw;
+  }
+  .feature {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .feature-image-container {
+    width: 100%;
+  }
+}

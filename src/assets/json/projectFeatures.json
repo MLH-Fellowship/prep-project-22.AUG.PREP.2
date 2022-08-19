@@ -1,0 +1,20 @@
+[
+  {
+    "image": "./images/compress-images.png",
+    "alt": "Image optimization on Github",
+    "feature": "Image optimization",
+    "desc": "We included Github actions that automatically compressed images to optimise front-end performance and minimize loading time using Calibre."
+  },
+  {
+    "image": "./images/deploy.png",
+    "alt": "Image optimization on Github",
+    "feature": "Automatic deployment to Github Pages",
+    "desc": "We built an automated workflow using Github actions to build + deploy to Github Pages."
+  },
+  {
+    "image": "./images/map.png",
+    "alt": "Feature map",
+    "feature": "Feature map",
+    "desc": "Check the weather anywhere by clicking on a location in our Mapbox component."
+  }
+]

@@ -1,4 +1,4 @@
-import "../assets/styles/Results.css"
+import "../assets/styles/Results.css";
 import {
   WiCloudy,
   WiDayHaze,
@@ -11,20 +11,21 @@ import {
   WiSandstorm,
   WiThunderstorm,
   WiSmoke,
-
   WiHumidity,
   WiBarometer,
   WiStrongWind,
   WiSunrise,
   WiSunset,
+
 } from "weather-icons-react"
 import { getFaviconEl, changeFaviconEl } from "./FaviconUtilities"
 
-export default function ResultsComponent({ isLoaded, results }) {
 
+export default function ResultsComponent({ isLoaded, results }) {
   // Weather card
   const getWeatherIcon = (x, size) => {
     switch (x) {
+
       case 'Rain':
         changeFaviconEl(`weather/${x}.png`);
         return <WiRain size={size} color="#00ffff" />
@@ -64,38 +65,62 @@ export default function ResultsComponent({ isLoaded, results }) {
     }
   
   }
-
+  
   return (
     <div className="Results">
       {!isLoaded && <h2>Loading...</h2>}
-      {isLoaded && results && <>
-      <div className="main-info">
-        <div className="place">
-          <span className="city-name">{results.name}</span>
-          <span className="country-name">, {results.sys.country}</span>
-        </div>
-
+      {isLoaded && results && (
         <div className="weather-card">
-          {getWeatherIcon(results.weather[0].main, 80)}
-          <span className="degree">
-            {parseInt(results.main.feels_like)} °C
-          </span>
-        </div>
+          <div className="main-info">
+            <p className="main-info__location">
+              {results.name}, {results.sys.country}
+            </p>
 
-        <div className="feels-like">
-          <span>Feels Like {results.main.feels_like} </span>
-          <span className="circle">°C</span>
+            <div className="main-info__degree">
+              <p>{getWeatherIcon(results.weather[0].main, 80)}</p>
+              <p>{results.main.temp} °C</p>
+            </div>
+            <p className="main-info__feels-like">
+              Feels like {results.main.feels_like}°C
+            </p>
+          </div>
+
+          <div className="additional-info">
+            <p>
+              <WiHumidity size={40} color="#ffc34d" />
+              Humidity: {results.main.humidity}%
+            </p>
+            <p>
+              <WiBarometer size={40} color="#ffc34d" />
+              Pressure: {results.main.pressure} hPa
+            </p>
+            <p>
+              <WiStrongWind size={40} color="#ffc34d" />
+              Windspeed: {results.wind.speed} m/s
+            </p>
+            <p>
+              <WiSunrise size={40} color="#ffc34d" />
+              Sunrise:{" "}
+              {
+                new Date(results.sys.sunrise * 1000)
+                  .toTimeString()
+                  .split("GMT")[0]
+              }
+              GMT
+            </p>
+            <p>
+              <WiSunset size={40} color="#ffc34d" />
+              Sunset:{" "}
+              {
+                new Date(results.sys.sunset * 1000)
+                  .toTimeString()
+                  .split("GMT")[0]
+              }
+              GMT
+            </p>
+          </div>
         </div>
-      </div>
-      
-      <div className="additional-info">
-        <p><WiHumidity size={40} color="#ffc34d"  /> Humidity: {results.main.humidity}%</p>
-        <p><WiBarometer size={40} color="#ffc34d" /> Pressure: {results.main.pressure} hPa</p>
-        <p><WiStrongWind size={40} color="#ffc34d" /> Windspeed: {results.wind.speed} m/s</p>
-        <p><WiSunrise size={40} color="#ffc34d" /> Sunrise: {new Date(results.sys.sunrise * 1000).toTimeString().split('GMT')[0]} GMT</p>
-        <p><WiSunset size={40} color="#ffc34d" /> Sunset: {new Date(results.sys.sunset * 1000).toTimeString().split('GMT')[0]} GMT</p>
-      </div>
-      </>}
+      )}
     </div>
-  )
+  );
 }
