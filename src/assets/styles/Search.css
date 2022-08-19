@@ -4,7 +4,7 @@
   border: 10px;
   width: 330px;
   background-color: #fff;
-  box-shadow: 5px 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .get-user-loc-btn {
